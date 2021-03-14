@@ -2,6 +2,7 @@ package com.meka.findajob.RestApi;
 
 
 
+import com.meka.findajob.Models.DogrulaModel;
 import com.meka.findajob.Models.KaydolModel;
 
 import retrofit2.Call;
@@ -19,5 +20,5 @@ public interface RestApi {
 
     @FormUrlEncoded
     @POST("/isbul/kayitolaktif.php")
-    Call<KaydolModel> aktifEt(@Field("kod") String kod, @Field("mail") String mail);
+    Call<DogrulaModel> aktifEt(@Field("kod") String kod, @Field("mail") String mail);
 }

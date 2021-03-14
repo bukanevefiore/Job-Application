@@ -2,6 +2,7 @@ package com.meka.findajob.RestApi;
 
 
 
+import com.meka.findajob.Models.DogrulaModel;
 import com.meka.findajob.Models.KaydolModel;
 
 import retrofit2.Call;
@@ -24,9 +25,9 @@ public class ManagerAll extends BaseManager {
     }
 
 
-    public Call<KaydolModel> aktifEt(String kod, String mail)
+    public Call<DogrulaModel> aktifEt(String kod, String mail)
     {
-        Call<KaydolModel> x=getRestApi().aktifEt(kod,mail);
+        Call<DogrulaModel> x=getRestApi().aktifEt(kod,mail);
         return x;
     }
 

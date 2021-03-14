@@ -41,6 +41,7 @@ public class SignUpActivity extends AppCompatActivity {
     SignInButton googleGiris;
     GoogleSignInClient mGoogleSignInClient;
     private static int RC_SIGN_IN=100;
+    String kadi,ksifre,kmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +59,22 @@ public class SignUpActivity extends AppCompatActivity {
         mailEditText=findViewById(R.id.mailEditText);
         parolaEditText=findViewById(R.id.parolaEditText);
         kaydolButon=findViewById(R.id.kaydolButon);
+        kaydolButon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
 
+                kadi=kullaniciAdiEditText.getText().toString();
+                kmail=mailEditText.getText().toString();
+                ksifre=parolaEditText.getText().toString();
+                kayitol(kadi,ksifre,kmail);
+                // bildirim();
+            }
+        });
+
+
+
+       //  google ile oturum açma
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
@@ -82,20 +97,10 @@ public class SignUpActivity extends AppCompatActivity {
 
 
 
-        kaydolButon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                String kadi,ksifre,kmail;
-                kadi=kullaniciAdiEditText.getText().toString();
-                kmail=mailEditText.getText().toString();
-                ksifre=parolaEditText.getText().toString();
-                kayitol(kadi,ksifre,kmail);
-               // bildirim();
-            }
-        });
     }
 
+    //  google ile otuurm açma
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -137,6 +142,7 @@ public class SignUpActivity extends AppCompatActivity {
         }
     }
 
+    //  kaydolma servisine istek atma
     public void kayitol(String ad, String sifre,String mail){
 
         Call<KaydolModel> request=ManagerAll.getInstance().addUser(ad, sifre, mail);
@@ -144,14 +150,17 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<KaydolModel> call, Response<KaydolModel> response) {
 
+                Log.i("dogrulama",response.body().getDogrulamakodu().toString());
                 if(response.body().isTf()){
 
                     Toast.makeText(SignUpActivity.this, response.body().getText().toString(), Toast.LENGTH_SHORT).show();
-
+                    Intent intent=new Intent(SignUpActivity.this,DogrulamaActivity.class);
+                    intent.putExtra("mailAdres", mail);
+                    startActivity(intent);
 
                 }else{
 
-                    Log.i("dogrulama",response.body().getDogrulamakodu().toString());
+
                 }
             }
 
@@ -164,6 +173,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
 
+    // uygulamaya bildirim gönderme
     public void bildirim(){
 
         final NotificationManager manager=(NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
