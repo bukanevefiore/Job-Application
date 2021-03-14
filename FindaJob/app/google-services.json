@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "342395126412",
+    "project_id": "isbul-75621",
+    "storage_bucket": "isbul-75621.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:342395126412:android:0b2d13e3da63fb17c9f1a9",
+        "android_client_info": {
+          "package_name": "com.meka.findajob"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "342395126412-tjvnlemu3vjjjq675qnlrnjqdrqml6a7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPvjofROEMFHJhhIkVsL7aULBsq30Kbn4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "342395126412-tjvnlemu3vjjjq675qnlrnjqdrqml6a7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
