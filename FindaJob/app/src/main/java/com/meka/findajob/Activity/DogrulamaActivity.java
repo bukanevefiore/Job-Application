@@ -29,6 +29,7 @@ public class DogrulamaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dogrulama);
+        tanimlamalar();
     }
 
     public void tanimlamalar(){
@@ -36,7 +37,8 @@ public class DogrulamaActivity extends AppCompatActivity {
         mailDogrulaText=findViewById(R.id.mailDogrulaText);
         dogrulamaKoduText=findViewById(R.id.dogrulamaKoduText);
         dogrulaButon=findViewById(R.id.dogrulaButon);
-        dogrulamaKoduText.setText(intent.getStringExtra("mailAdres"));
+        intent=getIntent();
+        mailDogrulaText.setText(intent.getStringExtra("mailAdres"));
         dogrulaButon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,6 +46,18 @@ public class DogrulamaActivity extends AppCompatActivity {
 
                 maildogrula=mailDogrulaText.getText().toString();
                 dogrulamaKodu=dogrulamaKoduText.getText().toString();
+
+                if(maildogrula != "" && dogrulamaKodu != ""){
+
+                    kullaniciDogrula(dogrulamaKodu,maildogrula);
+                    mailDogrulaText.setText("");
+                    dogrulamaKoduText.setText("");
+                    intent=new Intent(DogrulamaActivity.this,SignInActivity.class);
+                    startActivity(intent);
+                }else{
+
+                    Toast.makeText(DogrulamaActivity.this, "Lütfen tüm alanları doldurun..", Toast.LENGTH_LONG).show();
+                }
 
             }
         });

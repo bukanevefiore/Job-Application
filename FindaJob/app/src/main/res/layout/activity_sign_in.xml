@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".Activity.SignInActivity">
+
+    <LinearLayout
+
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/ounded_shape3"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="5dp"
+        >
+
+        <LinearLayout
+
+
+            android:background="@drawable/ounded_shape2"
+            android:backgroundTint="#09010B"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+
+            >
+
+
+            <LinearLayout
+                android:background="@drawable/ounded_shape2"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginBottom="7dp"
+                android:layout_marginTop="7dp"
+                android:layout_gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="600dp"
+                android:orientation="vertical">
+
+
+            <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/ic_baseline_business_24"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="60dp"
+                    >
+
+                </ImageView>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+
+                    android:layout_width="300dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:hint="E mail"
+
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/mailSignInText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@android:color/transparent" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+
+                    android:layout_width="300dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:hint="Parola"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/parolaSignInText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:backgroundTint="@android:color/transparent" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/girisYapButon"
+                    android:layout_width="340dp"
+                    android:layout_height="55dp"
+                    android:textColor="#FFFCFC"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/ounded_shape"
+                    style="AppTheme.RoundedCornerMaterialButton"
+                    android:text="GİRİŞ YAP"></androidx.appcompat.widget.AppCompatButton>
+
+                <com.google.android.gms.common.SignInButton
+                    android:layout_width="340dp"
+                    android:layout_height="55dp"
+                    android:text="GOOGLE İLE GİRİŞ YAP"
+                    android:id="@+id/googleGiris"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"></com.google.android.gms.common.SignInButton>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yeni Bir hesap Aç"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:textSize="12dp"
+                    android:textStyle="bold"
+                    android:id="@+id/yeniHesapButon"
+                    android:textColor="@color/purple_500"></TextView>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

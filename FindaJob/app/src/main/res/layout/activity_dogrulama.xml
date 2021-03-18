@@ -8,38 +8,44 @@
     android:orientation="vertical"
     tools:context=".Activity.DogrulamaActivity">
 
-    <androidx.cardview.widget.CardView
-        app:cardElevation="20dp"
+    <LinearLayout
+
         android:layout_marginTop="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        app:cardBackgroundColor="@color/purple_700"
+        android:background="@drawable/ounded_shape3"
         android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="5dp"
-        app:cardCornerRadius="15dp">
+        >
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view"
-        app:cardElevation="20dp"
-        android:layout_marginTop="50dp"
-        android:backgroundTint="#F1EBFB"
+    <LinearLayout
+
+        android:background="@drawable/ounded_shape2"
+        android:backgroundTint="#130515"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
-        android:layout_gravity="center"
+        android:layout_gravity="center_vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="550dp"
 
-        app:cardCornerRadius="35dp">
+        >
 
 
         <LinearLayout
+            android:background="@drawable/ounded_shape2"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:layout_marginBottom="7dp"
+            android:layout_marginTop="7dp"
+            android:layout_gravity="center_vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="550dp"
             android:orientation="vertical">
 
-            <ImageView
+
+        <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:background="@drawable/ic_baseline_business_24"
@@ -54,7 +60,7 @@
             <com.google.android.material.textfield.TextInputLayout
 
                 android:layout_width="300dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
                 android:hint="E mail"
@@ -74,11 +80,12 @@
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
-                android:hint="Parola"
+                android:hint="Doğrulama Kodu"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/dogrulamaKoduText"
+                    android:inputType="textPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@android:color/transparent" />
@@ -100,7 +107,7 @@
 
 
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
-    </androidx.cardview.widget.CardView>
+    </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>
