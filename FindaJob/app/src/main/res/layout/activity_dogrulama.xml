@@ -62,6 +62,7 @@
                 android:layout_width="300dp"
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center"
+                android:textColorHint="#ECBAF4"
                 android:layout_height="wrap_content"
                 android:hint="E mail"
                 >
@@ -69,6 +70,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/mailDogrulaText"
                     android:layout_width="match_parent"
+                    android:textColor="#ECBAF4"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@android:color/transparent" />
 
@@ -79,6 +81,7 @@
                 android:layout_width="300dp"
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center"
+                android:textColorHint="#ECBAF4"
                 android:layout_height="wrap_content"
                 android:hint="Doğrulama Kodu"
                 >
@@ -88,6 +91,7 @@
                     android:inputType="textPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="#ECBAF4"
                     android:backgroundTint="@android:color/transparent" />
 
             </com.google.android.material.textfield.TextInputLayout>

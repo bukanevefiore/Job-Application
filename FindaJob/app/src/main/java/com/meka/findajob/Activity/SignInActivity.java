@@ -8,7 +8,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,10 +19,10 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
-import com.meka.findajob.MainActivity;
 import com.meka.findajob.Models.GirisYapModel;
 import com.meka.findajob.R;
 import com.meka.findajob.RestApi.ManagerAll;
+import com.meka.findajob.Utils.GetSharedPref;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -57,8 +56,12 @@ public class SignInActivity extends AppCompatActivity {
                 String mail,sifre;
                 mail=mailSignInText.getText().toString();
                 sifre=parolaSignInText.getText().toString();
-                girisYap(mail,sifre);
-
+                mailSignInText.setText("");
+                parolaSignInText.setText("");
+                if(mail !="" && sifre != "") {
+                    girisYap(mail, sifre);
+                    Toast.makeText(getApplicationContext(), "Lütfen tüm alanları doldurun", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -149,6 +152,10 @@ public class SignInActivity extends AppCompatActivity {
                     Intent intent=new Intent(SignInActivity.this,MainActivity.class);
                     startActivity(intent);
                     finish();
+
+                    GetSharedPref getSharedPref=new GetSharedPref(SignInActivity.this);
+                    getSharedPref.setSession(response.body().getId().toString(),response.body().getMailadres().toString(),
+                            response.body().getKadi().toString());
 
                 }else{
 

@@ -60,7 +60,7 @@
         android:layout_width="300dp"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"
-
+       android:textColorHint="#ECBAF4"
         android:layout_height="wrap_content"
         android:hint="Kullanıcı Adı"
         >
@@ -68,6 +68,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/kullaniciAdiEditText"
             android:layout_width="match_parent"
+            android:textColor="#ECBAF4"
             android:layout_height="wrap_content"
             android:backgroundTint="@android:color/transparent" />
 
@@ -78,6 +79,7 @@
                 android:layout_width="300dp"
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center"
+                android:textColorHint="#ECBAF4"
                 android:layout_height="wrap_content"
                 android:hint="E mail"
                 >
@@ -85,6 +87,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/mailEditText"
                     android:layout_width="match_parent"
+                    android:textColor="#ECBAF4"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@android:color/transparent" />
 
@@ -95,6 +98,7 @@
                 android:layout_width="300dp"
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center"
+                android:textColorHint="#ECBAF4"
                 android:layout_height="wrap_content"
                 android:hint="Parola"
                 >
@@ -103,6 +107,7 @@
                     android:id="@+id/parolaEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="#ECBAF4"
                     android:inputType="textPassword"
                     android:backgroundTint="@android:color/transparent" />
 
