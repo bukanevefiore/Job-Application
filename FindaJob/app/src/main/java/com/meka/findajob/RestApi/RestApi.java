@@ -3,6 +3,7 @@ package com.meka.findajob.RestApi;
 
 
 import com.meka.findajob.Models.DogrulaModel;
+import com.meka.findajob.Models.GirisYapModel;
 import com.meka.findajob.Models.KaydolModel;
 
 import retrofit2.Call;
@@ -21,4 +22,8 @@ public interface RestApi {
     @FormUrlEncoded
     @POST("/isbul/kayitolaktif.php")
     Call<DogrulaModel> aktifEt(@Field("kod") String kod, @Field("mail") String mail);
+
+    @FormUrlEncoded
+    @POST("/isbul/girisyap.php")
+    Call<GirisYapModel> girisYap(@Field("mailadres") String mailadres, @Field("sifre") String sifre);
 }

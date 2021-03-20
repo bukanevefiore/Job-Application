@@ -81,7 +81,7 @@ public class SignUpActivity extends AppCompatActivity {
                    //showNotification();
                }else{
 
-                   Toast.makeText(SignUpActivity.this, "Lütfen tüm alanları doldurun..", Toast.LENGTH_LONG).show();
+                   Toast.makeText(getApplicationContext(), "Lütfen tüm alanları doldurun..", Toast.LENGTH_LONG).show();
                }
             }
         });
@@ -116,15 +116,16 @@ public class SignUpActivity extends AppCompatActivity {
                 if(response.body().isTf()){
 
                     Log.i("dogrulama",response.body().getDogrulamakodu().toString());
-                    Toast.makeText(SignUpActivity.this, response.body().getText().toString(), Toast.LENGTH_SHORT).show();
-                    Toast.makeText(SignUpActivity.this, response.body().getDogrulamakodu().toString(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), response.body().getText().toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), response.body().getDogrulamakodu().toString(), Toast.LENGTH_LONG).show();
                     Intent intent=new Intent(SignUpActivity.this,DogrulamaActivity.class);
                     intent.putExtra("mailAdres", mail);
+                    intent.putExtra("kod", response.body().getDogrulamakodu());
                     startActivity(intent);
 
                 }else{
 
-                    Toast.makeText(SignUpActivity.this, response.body().getText().toString(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), response.body().getText().toString(), Toast.LENGTH_LONG).show();
 
                 }
             }

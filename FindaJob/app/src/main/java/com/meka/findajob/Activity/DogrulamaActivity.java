@@ -30,6 +30,7 @@ public class DogrulamaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dogrulama);
         tanimlamalar();
+        Toast.makeText(getApplicationContext(), getIntent().getStringExtra("kod"), Toast.LENGTH_LONG).show();
     }
 
     public void tanimlamalar(){
@@ -73,10 +74,10 @@ public class DogrulamaActivity extends AppCompatActivity {
 
                if(response.body().isTf()){
 
-                   Toast.makeText(DogrulamaActivity.this, response.body().getResult().toString(), Toast.LENGTH_SHORT).show();
+                   Toast.makeText(getApplicationContext(), response.body().getResult().toString(), Toast.LENGTH_SHORT).show();
                }else{
 
-                   Toast.makeText(DogrulamaActivity.this, response.body().getResult().toString(), Toast.LENGTH_SHORT).show();
+                   Toast.makeText(getApplicationContext(), response.body().getResult().toString(), Toast.LENGTH_SHORT).show();
                }
            }
 

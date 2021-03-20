@@ -3,6 +3,7 @@ package com.meka.findajob.RestApi;
 
 
 import com.meka.findajob.Models.DogrulaModel;
+import com.meka.findajob.Models.GirisYapModel;
 import com.meka.findajob.Models.KaydolModel;
 
 import retrofit2.Call;
@@ -31,6 +32,11 @@ public class ManagerAll extends BaseManager {
         return x;
     }
 
+    public Call<GirisYapModel> girisYap(String mailadres, String sifre)
+    {
+        Call<GirisYapModel> x=getRestApi().girisYap(mailadres,sifre);
+        return x;
+    }
 
 
 }

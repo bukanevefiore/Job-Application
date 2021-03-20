@@ -1,12 +1,14 @@
 package com.meka.findajob.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,11 +19,20 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 import com.meka.findajob.MainActivity;
+import com.meka.findajob.Models.GirisYapModel;
 import com.meka.findajob.R;
+import com.meka.findajob.RestApi.ManagerAll;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SignInActivity extends AppCompatActivity {
 
+    TextInputEditText mailSignInText,parolaSignInText;
+    AppCompatButton girisYapButon;
     SignInButton googleGiris;
     GoogleSignInClient mGoogleSignInClient;
     TextView yeniHesapButon;
@@ -36,6 +47,20 @@ public class SignInActivity extends AppCompatActivity {
 
     public void tanimlamalar(){
 
+        mailSignInText=findViewById(R.id.mailSignInText);
+        parolaSignInText=findViewById(R.id.parolaSignInText);
+        girisYapButon=findViewById(R.id.girisYapButon);
+        girisYapButon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String mail,sifre;
+                mail=mailSignInText.getText().toString();
+                sifre=parolaSignInText.getText().toString();
+                girisYap(mail,sifre);
+
+            }
+        });
 
         yeniHesapButon=findViewById(R.id.yeniHesapButon);
         yeniHesapButon.setOnClickListener(new View.OnClickListener() {
@@ -110,5 +135,32 @@ public class SignInActivity extends AppCompatActivity {
             Log.d("message" , e.toString());
 
         }
+    }
+
+    public void girisYap(String mail,String sifre){
+
+        Call<GirisYapModel> request= ManagerAll.getInstance().girisYap(mail, sifre);
+        request.enqueue(new Callback<GirisYapModel>() {
+            @Override
+            public void onResponse(Call<GirisYapModel> call, Response<GirisYapModel> response) {
+
+                if(response.body().isTf()){
+                    Toast.makeText(getApplicationContext(), response.body().getText().toString(), Toast.LENGTH_LONG).show();
+                    Intent intent=new Intent(SignInActivity.this,MainActivity.class);
+                    startActivity(intent);
+                    finish();
+
+                }else{
+
+                    Toast.makeText(getApplicationContext(), response.body().getText().toString(), Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<GirisYapModel> call, Throwable t) {
+                Log.e("loginhata",t.getMessage());
+
+            }
+        });
     }
 }
