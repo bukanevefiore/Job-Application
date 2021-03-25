@@ -58,4 +58,7 @@ dependencies {
     implementation 'com.applandeo:material-calendar-view:1.7.0'
 
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+    implementation "androidx.navigation:navigation-fragment:2.3.4"
+    implementation "androidx.navigation:navigation-ui:2.3.4"
 }

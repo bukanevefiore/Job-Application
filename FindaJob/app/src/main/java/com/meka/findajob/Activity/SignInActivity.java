@@ -148,6 +148,7 @@ public class SignInActivity extends AppCompatActivity {
             public void onResponse(Call<GirisYapModel> call, Response<GirisYapModel> response) {
 
                 if(response.body().isTf()){
+                    Log.i("kontroll", "onResponse: dogruuu");
                     Toast.makeText(getApplicationContext(), response.body().getText().toString(), Toast.LENGTH_LONG).show();
                     Intent intent=new Intent(SignInActivity.this,MainActivity.class);
                     startActivity(intent);

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="notifications">notifications</string>
+    <string name="settings">settings</string>
+    <string name="aboutUs">aboutUs</string>
+</resources>

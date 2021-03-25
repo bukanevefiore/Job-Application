@@ -1,5 +1,6 @@
 package com.meka.findajob.Utils;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,32 +14,27 @@ import android.view.ViewGroup;
 import com.meka.findajob.R;
 
 
-public class ChangeFragment extends Fragment {
+public class ChangeFragment  {
 
-    View view;
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        view= inflater.inflate(R.layout.fragment_change, container, false);
-
-        return view;
-    }
-
+   private Context context;
+   public ChangeFragment(Context context){this.context=context; }
+/*
     public void change(Fragment fragment){
 
-        ((FragmentActivity)getContext()).getSupportFragmentManager().beginTransaction()
+        ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()
                 .replace(R.id.mai,fragment,"fragment")
                 .setTransitionStyle(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .commit();
     }
+
+ */
 
     public void changeWithParemeters(Fragment fragment,String Id){
 
         Bundle bundle=new Bundle();
         bundle.putString("Id",Id);
         fragment.setArguments(bundle);
-        ((FragmentActivity)getContext()).getSupportFragmentManager().beginTransaction()
+        ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()
                 .setTransitionStyle(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .commit();
     }

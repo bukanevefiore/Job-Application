@@ -2,4 +2,8 @@
     <string name="app_name">FindaJob</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="profile">profile</string>
+    <string name="notifications">notifications</string>
+    <string name="settings">settings</string>
+    <string name="aboutUs">aboutUs</string>
 </resources>

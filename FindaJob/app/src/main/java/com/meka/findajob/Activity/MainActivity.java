@@ -1,10 +1,13 @@
 package com.meka.findajob.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 
 import com.meka.findajob.R;
 import com.meka.findajob.Utils.GetSharedPref;
@@ -18,7 +21,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         sharedKontrol();
+        drawerMenuKontrol();
+    }
 
+    public void drawerMenuKontrol(){
+
+        DrawerLayout drawerLayout=findViewById(R.id.drawerLayout);
+        findViewById(R.id.imageMenu).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
     }
 
     public void  sharedKontrol(){
