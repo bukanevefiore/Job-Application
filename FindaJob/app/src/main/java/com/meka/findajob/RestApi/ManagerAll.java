@@ -2,6 +2,7 @@ package com.meka.findajob.RestApi;
 
 
 
+import com.meka.findajob.Models.DeneyimEkleModel;
 import com.meka.findajob.Models.DogrulaModel;
 import com.meka.findajob.Models.GirisYapModel;
 import com.meka.findajob.Models.KaydolModel;
@@ -35,6 +36,12 @@ public class ManagerAll extends BaseManager {
     public Call<GirisYapModel> girisYap(String mailadres, String sifre)
     {
         Call<GirisYapModel> x=getRestApi().girisYap(mailadres,sifre);
+        return x;
+    }
+
+    public Call<DeneyimEkleModel> deneyimEkle(String kulid, String sirket,String deneyimalan,String yil)
+    {
+        Call<DeneyimEkleModel> x=getRestApi().deneyimEkle(kulid, sirket, deneyimalan, yil);
         return x;
     }
 

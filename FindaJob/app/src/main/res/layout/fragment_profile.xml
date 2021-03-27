@@ -5,62 +5,227 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@drawable/ounded_shape4"
+    android:background="#3C0945"
     tools:context=".Fragments.ProfileFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/ounded_shape5">
 
     <!-- genel bilgiler -->
     <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="5dp"
         app:cardCornerRadius="3dp"
-        app:cardMaxElevation="10dp">
+        card_view:cardElevation="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="8.5"
+            android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:text="General Information"
+            android:textColor="#872298"
+            android:layout_marginTop="17.5dp"
+            android:layout_marginLeft="25dp"></TextView>
 
         <ImageView
-            android:layout_width="20dp"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
             android:layout_height="20dp"
-            android:layout_gravity="right"
+            android:layout_gravity="center_vertical"
             android:layout_marginVertical="15dp"
             android:layout_marginRight="15dp"
             android:background="@drawable/ounded_shape4"></ImageView>
-
+        </LinearLayout>
+</LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <!-- tablo ilan verme vs -->
     <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="5dp"
         app:cardCornerRadius="3dp"
-        app:cardMaxElevation="10dp">
+        card_view:cardElevation="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+           android:layout_weight="8.5"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <TextView
+            android:text="Seminars and Events"
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:textColor="#872298"
+            android:layout_marginTop="17.5dp"
+            android:layout_marginLeft="25dp">
+           </TextView>
 
         <ImageView
-            android:layout_width="20dp"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
             android:layout_height="20dp"
-            android:layout_gravity="right"
+            android:layout_gravity="center_vertical"
             android:layout_marginVertical="15dp"
             android:layout_marginRight="15dp"
             android:background="@drawable/ounded_shape4"></ImageView>
-
+        </LinearLayout>
+</LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <!-- genel bilgiler -->
+    <!--deneyimler -->
     <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="5dp"
         app:cardCornerRadius="3dp"
-        app:cardMaxElevation="10dp">
+        card_view:cardElevation="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:weightSum="8.5"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <TextView
+            android:text="Experiences"
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:textColor="#872298"
+            android:layout_marginTop="17.5dp"
+            android:layout_marginLeft="25dp"></TextView>
 
         <ImageView
-            android:layout_width="20dp"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
             android:layout_height="20dp"
-            android:layout_gravity="right"
+            android:id="@+id/deneyimEkleImageView"
+            android:layout_gravity="center_vertical"
             android:layout_marginVertical="15dp"
             android:layout_marginRight="15dp"
-            android:background="@drawable/ounded_shape4"></ImageView>
-
+            android:background="@drawable/ic_baseline_add_circle_24"></ImageView>
+        </LinearLayout>
+</LinearLayout>
     </androidx.cardview.widget.CardView>
+
+    <!-- eğitim bilgiler -->
+    <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="3dp"
+        card_view:cardElevation="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:weightSum="8.5"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+        <TextView
+            android:text="Education Information"
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:textColor="#872298"
+            android:layout_marginTop="17.5dp"
+            android:layout_marginLeft="25dp"></TextView>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginVertical="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/ic_baseline_add_circle_24"></ImageView>
+        </LinearLayout>
+</LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- yetenekler -->
+    <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="3dp"
+        card_view:cardElevation="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:weightSum="8.5"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+        <TextView
+            android:text="Capabilities"
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:textColor="#872298"
+            android:layout_marginTop="17.5dp"
+            android:layout_marginLeft="25dp"></TextView>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginVertical="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/ic_baseline_add_circle_24"></ImageView>
+        </LinearLayout>
+</LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
 
 
 </LinearLayout>
