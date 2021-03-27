@@ -18,16 +18,16 @@ public class ChangeFragment  {
 
    private Context context;
    public ChangeFragment(Context context){this.context=context; }
-/*
+
     public void change(Fragment fragment){
 
         ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()
-                .replace(R.id.mai,fragment,"fragment")
+                .replace(R.id.navHostFragment,fragment,"fragment")
                 .setTransitionStyle(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .commit();
     }
 
- */
+
 
     public void changeWithParemeters(Fragment fragment,String Id){
 
