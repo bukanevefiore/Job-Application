@@ -4,6 +4,7 @@ package com.meka.findajob.RestApi;
 
 import com.meka.findajob.Models.DeneyimEkleModel;
 import com.meka.findajob.Models.DeneyimListeleModel;
+import com.meka.findajob.Models.DeneyimSilModel;
 import com.meka.findajob.Models.DogrulaModel;
 import com.meka.findajob.Models.GirisYapModel;
 import com.meka.findajob.Models.KaydolModel;
@@ -38,6 +39,10 @@ public interface RestApi {
     @FormUrlEncoded
     @POST("/isbul/deneyimlistele.php")
     Call<List<DeneyimListeleModel>> deneyimListele(@Field("kulid") String kulid);
+
+    @FormUrlEncoded
+    @POST("/isbul/deneyimsil.php")
+    Call<DeneyimSilModel> deneyimSil(@Field("id") String id);
 
 
 }

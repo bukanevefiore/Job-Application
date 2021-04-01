@@ -94,8 +94,12 @@ public class ProfileFragment extends Fragment {
         deneyimEkleYil=view.findViewById(R.id.deneyimEkleYil);
         deneyimEkleKaydetButon=view.findViewById(R.id.deneyimEkleKaydetButon);
 
+        AlertDialog.Builder alert=new AlertDialog.Builder(getContext());
+        alert.setView(view);
+        alert.setCancelable(true);
+        final AlertDialog alertDialog=alert.create();
 
-
+        alertDialog.show(); // SHOW
 
 
         deneyimEkleKaydetButon.setOnClickListener(new View.OnClickListener() {
@@ -110,17 +114,15 @@ public class ProfileFragment extends Fragment {
                 deneyimEkleAlan.setText("");
                 deneyimEkleSirket.setText("");
                 deneyimEkleYil.setText("");
+                deneyimListele(kulid);
+                alertDialog.cancel();  // CANSEL
+
 
             }
         });
 
 
-        AlertDialog.Builder alert=new AlertDialog.Builder(getContext());
-        alert.setView(view);
-        alert.setCancelable(true);
-        final AlertDialog alertDialog=alert.create();
 
-        alertDialog.show();
     }
 
     public void deneyimEkleRequest(String kulid,String sirket,String deneyimalan,String yil){

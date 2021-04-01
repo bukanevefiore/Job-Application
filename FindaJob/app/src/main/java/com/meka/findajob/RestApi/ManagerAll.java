@@ -4,6 +4,7 @@ package com.meka.findajob.RestApi;
 
 import com.meka.findajob.Models.DeneyimEkleModel;
 import com.meka.findajob.Models.DeneyimListeleModel;
+import com.meka.findajob.Models.DeneyimSilModel;
 import com.meka.findajob.Models.DogrulaModel;
 import com.meka.findajob.Models.GirisYapModel;
 import com.meka.findajob.Models.KaydolModel;
@@ -51,6 +52,12 @@ public class ManagerAll extends BaseManager {
     public Call<List<DeneyimListeleModel>> deneyimListele(String kulid)
     {
         Call<List<DeneyimListeleModel>> x=getRestApi().deneyimListele(kulid);
+        return x;
+    }
+
+    public Call<DeneyimSilModel> deneyimSil(String id)
+    {
+        Call<DeneyimSilModel> x=getRestApi().deneyimSil(id);
         return x;
     }
 

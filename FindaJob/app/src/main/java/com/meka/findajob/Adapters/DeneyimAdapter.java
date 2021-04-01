@@ -13,9 +13,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.chauthai.swipereveallayout.SwipeRevealLayout;
 import com.chauthai.swipereveallayout.ViewBinderHelper;
 import com.meka.findajob.Models.DeneyimListeleModel;
+import com.meka.findajob.Models.DeneyimSilModel;
 import com.meka.findajob.R;
+import com.meka.findajob.RestApi.ManagerAll;
 
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class DeneyimAdapter extends RecyclerView.Adapter<DeneyimAdapter.ViewHolder> {
 
@@ -49,7 +55,14 @@ public class DeneyimAdapter extends RecyclerView.Adapter<DeneyimAdapter.ViewHold
         holder.deneyimsirket.setText(list.get(position).getSirket().toString());
         holder.deneyimyil.setText(list.get(position).getYil());
 
+        holder.textDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                deneyimSil(list.get(position).getId().toString(),position);
+
+            }
+        });
 
     }
 
@@ -76,21 +89,39 @@ public class DeneyimAdapter extends RecyclerView.Adapter<DeneyimAdapter.ViewHold
             swipeLayout=itemView.findViewById(R.id.swipeLayout);
 
 
-                textDelete.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
 
-                        Toast.makeText(context, "list.get(position).getId()", Toast.LENGTH_SHORT).show();
-                    }
-                });
 
         }
     }
 
 
 
-    public void deneyimSil(){
+    public void deneyimSil(String id,int position){
 
+        Call<DeneyimSilModel> request= ManagerAll.getInstance().deneyimSil(id);
+        request.enqueue(new Callback<DeneyimSilModel>() {
+            @Override
+            public void onResponse(Call<DeneyimSilModel> call, Response<DeneyimSilModel> response) {
+
+                if(response.isSuccessful()) {
+                    Toast.makeText(context, response.body().getText().toString(), Toast.LENGTH_SHORT).show();
+                    deleteToList(position);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<DeneyimSilModel> call, Throwable t) {
+
+            }
+        });
+
+    }
+
+    // listeden silinen deneyimi kaldırma
+    public void deleteToList(int position){
+        list.remove(position);
+        notifyItemRemoved(position);
+        notifyDataSetChanged();
     }
 
 }
