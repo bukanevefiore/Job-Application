@@ -3,9 +3,12 @@ package com.meka.findajob.RestApi;
 
 
 import com.meka.findajob.Models.DeneyimEkleModel;
+import com.meka.findajob.Models.DeneyimListeleModel;
 import com.meka.findajob.Models.DogrulaModel;
 import com.meka.findajob.Models.GirisYapModel;
 import com.meka.findajob.Models.KaydolModel;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -31,4 +34,10 @@ public interface RestApi {
     @FormUrlEncoded
     @POST("/isbul/deneyimekle.php")
     Call<DeneyimEkleModel> deneyimEkle(@Field("id") String id, @Field("sirket") String sirket, @Field("deneyimalan") String deneyimalan, @Field("yil") String yil);
+
+    @FormUrlEncoded
+    @POST("/isbul/deneyimlistele.php")
+    Call<List<DeneyimListeleModel>> deneyimListele(@Field("kulid") String kulid);
+
+
 }

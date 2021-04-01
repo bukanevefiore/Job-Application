@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +15,12 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.meka.findajob.Models.DeneyimEkleModel;
+import com.meka.findajob.Models.DeneyimListeleModel;
 import com.meka.findajob.R;
 import com.meka.findajob.RestApi.ManagerAll;
 import com.meka.findajob.Utils.GetSharedPref;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -30,6 +34,8 @@ public class ProfileFragment extends Fragment {
    ImageView deneyimEkleImageView;
    String kulid;
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -38,6 +44,7 @@ public class ProfileFragment extends Fragment {
 
         tanimlamalar();
         clicks();
+        deneyimListele(kulid);
 
         return view;
     }
@@ -45,14 +52,19 @@ public class ProfileFragment extends Fragment {
     public void tanimlamalar(){
 
         deneyimEkleImageView=view.findViewById(R.id.deneyimEkleImageView);
+        GetSharedPref getSharedPref=new GetSharedPref(getActivity());
+        kulid=getSharedPref.getSession().getString("id",null);
 
     }
     public void clicks(){
+
+
 
         deneyimEkleImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openDeneyimAlert();
+
             }
         });
     }
@@ -62,7 +74,7 @@ public class ProfileFragment extends Fragment {
         LayoutInflater layoutInflater=this.getLayoutInflater();
         view=layoutInflater.inflate(R.layout.deneyim_ekle_layout,null);
 
-        TextInputEditText deneyimEkleSirket,deneyimEkleAlan,deneyimEkleYil;
+        final TextInputEditText deneyimEkleSirket,deneyimEkleAlan,deneyimEkleYil;
         AppCompatButton deneyimEkleKaydetButon;
 
         deneyimEkleSirket=view.findViewById(R.id.deneyimEkleSirket);
@@ -70,21 +82,23 @@ public class ProfileFragment extends Fragment {
         deneyimEkleYil=view.findViewById(R.id.deneyimEkleYil);
         deneyimEkleKaydetButon=view.findViewById(R.id.deneyimEkleKaydetButon);
 
-        String sirket,deneyimalan,yil;
-        sirket=deneyimEkleSirket.getText().toString();
-        deneyimalan=deneyimEkleAlan.getText().toString();
-        yil=deneyimEkleYil.getText().toString();
-        GetSharedPref getSharedPref=new GetSharedPref(getActivity());
-        kulid=getSharedPref.getSession().getString("id",null);
+
+
+
 
         deneyimEkleKaydetButon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String sirket="",deneyimalan="",yil="";
+                sirket=deneyimEkleSirket.getText().toString();
+                deneyimalan=deneyimEkleAlan.getText().toString();
+                yil=deneyimEkleYil.getText().toString();
 
                 deneyimEkleRequest(kulid,sirket,deneyimalan,yil);
                 deneyimEkleAlan.setText("");
                 deneyimEkleSirket.setText("");
                 deneyimEkleYil.setText("");
+
             }
         });
 
@@ -115,6 +129,21 @@ public class ProfileFragment extends Fragment {
 
             @Override
             public void onFailure(Call<DeneyimEkleModel> call, Throwable t) {
+
+            }
+        });
+    }
+
+    public void deneyimListele(String kulidd){
+        Call<List<DeneyimListeleModel>> request=ManagerAll.getInstance().deneyimListele(kulidd);
+        request.enqueue(new Callback<List<DeneyimListeleModel>>() {
+            @Override
+            public void onResponse(Call<List<DeneyimListeleModel>> call, Response<List<DeneyimListeleModel>> response) {
+                Log.i("deneyimler",response.body().toString());
+            }
+
+            @Override
+            public void onFailure(Call<List<DeneyimListeleModel>> call, Throwable t) {
 
             }
         });

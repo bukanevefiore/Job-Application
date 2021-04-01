@@ -3,6 +3,7 @@ package com.meka.findajob.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -36,6 +37,7 @@ public class SignInActivity extends AppCompatActivity {
     GoogleSignInClient mGoogleSignInClient;
     TextView yeniHesapButon;
     private static int RC_SIGN_IN=100;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,13 +48,23 @@ public class SignInActivity extends AppCompatActivity {
 
     public void tanimlamalar(){
 
+
+
+
         mailSignInText=findViewById(R.id.mailSignInText);
         parolaSignInText=findViewById(R.id.parolaSignInText);
         girisYapButon=findViewById(R.id.girisYapButon);
         girisYapButon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // dialog açma
+                progressDialog = new ProgressDialog(SignInActivity.this);
+                progressDialog.show();
+                progressDialog.setContentView(R.layout.progress_dialog);
+                progressDialog.getWindow().setBackgroundDrawableResource(
+                        android.R.color.transparent);
 
+                // request için değişkenler tanımlama
                 String mail,sifre;
                 mail=mailSignInText.getText().toString();
                 sifre=parolaSignInText.getText().toString();
@@ -62,9 +74,13 @@ public class SignInActivity extends AppCompatActivity {
                     girisYap(mail, sifre);
                     Toast.makeText(getApplicationContext(), "Lütfen tüm alanları doldurun", Toast.LENGTH_SHORT).show();
                 }
-            }
-        });
 
+            }
+
+        });
+        // dialog cansel
+       // progressDialog.cancel();
+        // yeni hesap
         yeniHesapButon=findViewById(R.id.yeniHesapButon);
         yeniHesapButon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,6 +112,11 @@ public class SignInActivity extends AppCompatActivity {
                 startActivityForResult(signInIntent, RC_SIGN_IN);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        progressDialog.dismiss();
     }
 
     //  google ile otuurm açma
@@ -167,6 +188,7 @@ public class SignInActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<GirisYapModel> call, Throwable t) {
                 Log.e("loginhata",t.getMessage());
+                Toast.makeText(getApplicationContext(), "internet hatası", Toast.LENGTH_LONG).show();
 
             }
         });

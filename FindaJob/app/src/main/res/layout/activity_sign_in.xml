@@ -128,6 +128,8 @@
                     android:id="@+id/yeniHesapButon"
                     android:textColor="@color/purple_500"></TextView>
 
+
+
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

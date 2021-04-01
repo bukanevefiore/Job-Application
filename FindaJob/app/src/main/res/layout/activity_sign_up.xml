@@ -45,6 +45,8 @@
             android:layout_height="600dp"
             android:orientation="vertical">
 
+
+
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
@@ -136,6 +138,8 @@
                 android:textStyle="bold"
                 android:id="@+id/girisButon"
                 android:textColor="#D2CCDC"></TextView>
+
+
 
         </LinearLayout>
     </LinearLayout>

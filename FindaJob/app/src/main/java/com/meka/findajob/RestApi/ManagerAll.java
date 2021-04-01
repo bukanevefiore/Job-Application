@@ -3,9 +3,12 @@ package com.meka.findajob.RestApi;
 
 
 import com.meka.findajob.Models.DeneyimEkleModel;
+import com.meka.findajob.Models.DeneyimListeleModel;
 import com.meka.findajob.Models.DogrulaModel;
 import com.meka.findajob.Models.GirisYapModel;
 import com.meka.findajob.Models.KaydolModel;
+
+import java.util.List;
 
 import retrofit2.Call;
 
@@ -42,6 +45,12 @@ public class ManagerAll extends BaseManager {
     public Call<DeneyimEkleModel> deneyimEkle(String kulid, String sirket,String deneyimalan,String yil)
     {
         Call<DeneyimEkleModel> x=getRestApi().deneyimEkle(kulid, sirket, deneyimalan, yil);
+        return x;
+    }
+
+    public Call<List<DeneyimListeleModel>> deneyimListele(String kulid)
+    {
+        Call<List<DeneyimListeleModel>> x=getRestApi().deneyimListele(kulid);
         return x;
     }
 
