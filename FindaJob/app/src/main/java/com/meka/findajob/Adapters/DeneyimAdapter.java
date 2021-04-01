@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,6 +21,7 @@ public class DeneyimAdapter extends RecyclerView.Adapter<DeneyimAdapter.ViewHold
 
     private List<DeneyimListeleModel> list;
     private Context context;
+    private final ViewBinderHelper viewBinderHelper=new ViewBinderHelper();
 
 
     public DeneyimAdapter(List<DeneyimListeleModel> list, Context context) {
@@ -39,11 +41,15 @@ public class DeneyimAdapter extends RecyclerView.Adapter<DeneyimAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-
+        viewBinderHelper.setOpenOnlyOne(true);
+        viewBinderHelper.bind(holder.swipeLayout,String.valueOf(list.get(position).getId()));
+        viewBinderHelper.closeLayout(String.valueOf(list.get(position).getId()));
 
         holder.deneyimbolum.setText(list.get(position).getDeneyimalan().toString());
         holder.deneyimsirket.setText(list.get(position).getSirket().toString());
         holder.deneyimyil.setText(list.get(position).getYil());
+
+
 
     }
 
@@ -65,14 +71,26 @@ public class DeneyimAdapter extends RecyclerView.Adapter<DeneyimAdapter.ViewHold
             deneyimbolum=itemView.findViewById(R.id.deneyimbolum);
             deneyimsirket=itemView.findViewById(R.id.deneyimsirket);
             deneyimyil=itemView.findViewById(R.id.deneyimyil);
-           // textEdit=itemView.findViewById(R.id.textEdit);
-           // textDelete=itemView.findViewById(R.id.textDelete);
-           // swipeLayout=itemView.findViewById(R.id.swipeLayout);
+            textEdit=itemView.findViewById(R.id.textEdit);
+            textDelete=itemView.findViewById(R.id.textDelete);
+            swipeLayout=itemView.findViewById(R.id.swipeLayout);
 
+
+                textDelete.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        Toast.makeText(context, "list.get(position).getId()", Toast.LENGTH_SHORT).show();
+                    }
+                });
 
         }
     }
 
 
+
+    public void deneyimSil(){
+
+    }
 
 }
