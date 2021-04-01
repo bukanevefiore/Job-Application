@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,12 +16,14 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.meka.findajob.Adapters.DeneyimAdapter;
 import com.meka.findajob.Models.DeneyimEkleModel;
 import com.meka.findajob.Models.DeneyimListeleModel;
 import com.meka.findajob.R;
 import com.meka.findajob.RestApi.ManagerAll;
 import com.meka.findajob.Utils.GetSharedPref;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -33,6 +37,10 @@ public class ProfileFragment extends Fragment {
    View view;
    ImageView deneyimEkleImageView;
    String kulid;
+   private RecyclerView deneyimRecyclerView;
+   List<DeneyimListeleModel> list;
+   DeneyimAdapter deneyimAdapter;
+
 
 
 
@@ -54,6 +62,10 @@ public class ProfileFragment extends Fragment {
         deneyimEkleImageView=view.findViewById(R.id.deneyimEkleImageView);
         GetSharedPref getSharedPref=new GetSharedPref(getActivity());
         kulid=getSharedPref.getSession().getString("id",null);
+        deneyimRecyclerView=view.findViewById(R.id.deneyimRecyclerView);
+        RecyclerView.LayoutManager layoutManager=new GridLayoutManager(getContext(),1);
+        deneyimRecyclerView.setLayoutManager(layoutManager);
+        list=new ArrayList<>();
 
     }
     public void clicks(){
@@ -139,7 +151,15 @@ public class ProfileFragment extends Fragment {
         request.enqueue(new Callback<List<DeneyimListeleModel>>() {
             @Override
             public void onResponse(Call<List<DeneyimListeleModel>> call, Response<List<DeneyimListeleModel>> response) {
-                Log.i("deneyimler",response.body().toString());
+                if(response.isSuccessful()){
+                    if(response.body().size()>0) {
+                        list = response.body();
+                        deneyimAdapter=new DeneyimAdapter(list,getContext());
+                        deneyimRecyclerView.setAdapter(deneyimAdapter);
+                        Log.i("deneyimler", response.body().toString());
+                    }
+
+                }
             }
 
             @Override
