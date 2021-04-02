@@ -40,8 +40,7 @@ public class ProfileFragment extends Fragment {
    private RecyclerView deneyimRecyclerView;
    List<DeneyimListeleModel> list;
    DeneyimAdapter deneyimAdapter;
-
-
+   
 
 
     @Override
@@ -66,6 +65,7 @@ public class ProfileFragment extends Fragment {
         RecyclerView.LayoutManager layoutManager=new GridLayoutManager(getContext(),1);
         deneyimRecyclerView.setLayoutManager(layoutManager);
         list=new ArrayList<>();
+
 
     }
     public void clicks(){

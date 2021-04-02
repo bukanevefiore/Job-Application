@@ -4,14 +4,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.chauthai.swipereveallayout.SwipeRevealLayout;
 import com.chauthai.swipereveallayout.ViewBinderHelper;
+import com.meka.findajob.Activity.ViewHolder.DeneyimViewHolder;
 import com.meka.findajob.Models.DeneyimListeleModel;
 import com.meka.findajob.Models.DeneyimSilModel;
 import com.meka.findajob.R;
@@ -23,11 +22,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class DeneyimAdapter extends RecyclerView.Adapter<DeneyimAdapter.ViewHolder> {
+public class DeneyimAdapter extends RecyclerView.Adapter<DeneyimViewHolder> {
 
     private List<DeneyimListeleModel> list;
     private Context context;
     private final ViewBinderHelper viewBinderHelper=new ViewBinderHelper();
+
 
 
     public DeneyimAdapter(List<DeneyimListeleModel> list, Context context) {
@@ -38,14 +38,15 @@ public class DeneyimAdapter extends RecyclerView.Adapter<DeneyimAdapter.ViewHold
 
     @NonNull
     @Override     // adapterinin oluşturduğumuz layout un tanımlama işlemi
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public DeneyimViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(context).inflate(R.layout.deneyim_listele_layout,parent,false);
-        return new ViewHolder(view);
+
+        return new DeneyimViewHolder(view);
     }
 
     // değişkenlere değer atama işlemleri
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull DeneyimViewHolder holder, int position) {
 
         viewBinderHelper.setOpenOnlyOne(true);
         viewBinderHelper.bind(holder.swipeLayout,String.valueOf(list.get(position).getId()));
@@ -65,17 +66,12 @@ public class DeneyimAdapter extends RecyclerView.Adapter<DeneyimAdapter.ViewHold
         });
 
     }
-
-    @Override
-    public int getItemCount() {
-        return list.size();
-    }
-
+/*
     // tanımlama işlemleri
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView deneyimbolum,deneyimsirket,deneyimyil,textEdit,textDelete;
-        private SwipeRevealLayout swipeLayout;
+        public TextView deneyimbolum,deneyimsirket,deneyimyil,textEdit,textDelete;
+        public SwipeRevealLayout swipeLayout;
 
         // değişkenleri eşleme
         public ViewHolder(@NonNull View itemView) {
@@ -93,6 +89,16 @@ public class DeneyimAdapter extends RecyclerView.Adapter<DeneyimAdapter.ViewHold
 
         }
     }
+
+ */
+
+
+    @Override
+    public int getItemCount() {
+        return list.size();
+    }
+
+
 
 
 

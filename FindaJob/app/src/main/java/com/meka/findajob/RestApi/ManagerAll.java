@@ -6,6 +6,7 @@ import com.meka.findajob.Models.DeneyimEkleModel;
 import com.meka.findajob.Models.DeneyimListeleModel;
 import com.meka.findajob.Models.DeneyimSilModel;
 import com.meka.findajob.Models.DogrulaModel;
+import com.meka.findajob.Models.EgitimEkleModel;
 import com.meka.findajob.Models.GirisYapModel;
 import com.meka.findajob.Models.KaydolModel;
 
@@ -60,6 +61,13 @@ public class ManagerAll extends BaseManager {
         Call<DeneyimSilModel> x=getRestApi().deneyimSil(id);
         return x;
     }
+
+    public Call<EgitimEkleModel> egitimEkle(String uni, String bolum, String baslangic, String bitis)
+    {
+        Call<EgitimEkleModel> x=getRestApi().egitimEkle(uni, bolum, baslangic, bitis);
+        return x;
+    }
+
 
 
 }
