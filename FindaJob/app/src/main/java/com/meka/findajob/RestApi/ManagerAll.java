@@ -62,9 +62,9 @@ public class ManagerAll extends BaseManager {
         return x;
     }
 
-    public Call<EgitimEkleModel> egitimEkle(String uni, String bolum, String baslangic, String bitis)
+    public Call<EgitimEkleModel> egitimEkle(String id,String uni, String bolum, String baslangic, String bitis)
     {
-        Call<EgitimEkleModel> x=getRestApi().egitimEkle(uni, bolum, baslangic, bitis);
+        Call<EgitimEkleModel> x=getRestApi().egitimEkle(id,uni, bolum, baslangic, bitis);
         return x;
     }
 

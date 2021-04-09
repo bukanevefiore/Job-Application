@@ -19,6 +19,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.meka.findajob.Adapters.DeneyimAdapter;
 import com.meka.findajob.Models.DeneyimEkleModel;
 import com.meka.findajob.Models.DeneyimListeleModel;
+import com.meka.findajob.Models.EgitimEkleModel;
 import com.meka.findajob.R;
 import com.meka.findajob.RestApi.ManagerAll;
 import com.meka.findajob.Utils.GetSharedPref;
@@ -35,12 +36,12 @@ public class ProfileFragment extends Fragment {
 
 
    View view;
-   ImageView deneyimEkleImageView;
+   ImageView deneyimEkleImageView,egitimEkleImageView;
    String kulid;
    private RecyclerView deneyimRecyclerView;
    List<DeneyimListeleModel> list;
    DeneyimAdapter deneyimAdapter;
-   
+
 
 
     @Override
@@ -59,6 +60,7 @@ public class ProfileFragment extends Fragment {
     public void tanimlamalar(){
 
         deneyimEkleImageView=view.findViewById(R.id.deneyimEkleImageView);
+        egitimEkleImageView=view.findViewById(R.id.egitimEkleImageView);
         GetSharedPref getSharedPref=new GetSharedPref(getActivity());
         kulid=getSharedPref.getSession().getString("id",null);
         deneyimRecyclerView=view.findViewById(R.id.deneyimRecyclerView);
@@ -69,9 +71,7 @@ public class ProfileFragment extends Fragment {
 
     }
     public void clicks(){
-
-
-
+        // deneyim ekle
         deneyimEkleImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,12 +79,21 @@ public class ProfileFragment extends Fragment {
 
             }
         });
+        //egitim ekle
+        egitimEkleImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                openEgitimAlert();
+            }
+        });
+
     }
 
     public void openDeneyimAlert(){
 
         LayoutInflater layoutInflater=this.getLayoutInflater();
-        view=layoutInflater.inflate(R.layout.deneyim_ekle_layout,null);
+        view=layoutInflater.inflate(R.layout.deneyim_ekle_alert,null);
 
         final TextInputEditText deneyimEkleSirket,deneyimEkleAlan,deneyimEkleYil;
         AppCompatButton deneyimEkleKaydetButon;
@@ -123,6 +132,72 @@ public class ProfileFragment extends Fragment {
 
 
 
+    }
+
+    // egitim ekle alert
+    public void openEgitimAlert(){
+
+        LayoutInflater layoutInflater=this.getLayoutInflater();
+        view=layoutInflater.inflate(R.layout.egitim_ekle_alert,null);
+
+        final TextInputEditText egitimEkleOkul,egitimEkleBolum,egitimEkleBaslangic,egitimEkleBitis;
+        AppCompatButton egitimEkleKaydetButon;
+
+        egitimEkleOkul=view.findViewById(R.id.egitimEkleOkul);
+        egitimEkleBolum=view.findViewById(R.id.egitimEkleBolum);
+        egitimEkleBaslangic=view.findViewById(R.id.egitimEkleBaslangic);
+        egitimEkleBitis=view.findViewById(R.id.egitimEkleBitis);
+        egitimEkleKaydetButon=view.findViewById(R.id.egitimEkleKaydetButon);
+
+        AlertDialog.Builder alert=new AlertDialog.Builder(getContext());
+        alert.setView(view);
+        alert.setCancelable(true);
+        final AlertDialog alertDialog=alert.create();
+
+        alertDialog.show();
+
+        egitimEkleKaydetButon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String okul="",bolum="",baslangic="",bitis="";
+                okul=egitimEkleOkul.getText().toString();
+                bolum=egitimEkleBolum.getText().toString();
+                baslangic=egitimEkleBaslangic.getText().toString();
+                bitis=egitimEkleBitis.getText().toString();
+                egitimEkleRequest(kulid,okul,bolum,baslangic,bitis);
+
+                egitimEkleOkul.setText("");
+                egitimEkleBolum.setText("");
+                egitimEkleBaslangic.setText("");
+                egitimEkleBitis.setText("");
+
+                alertDialog.cancel();
+            }
+        });
+
+    }
+
+    // egitim ekle istek
+    private void egitimEkleRequest(String kulid, String okul, String bolum, String baslangic, String bitis) {
+
+        Call<EgitimEkleModel> request=ManagerAll.getInstance().egitimEkle(kulid, okul, bolum, baslangic, bitis);
+        request.enqueue(new Callback<EgitimEkleModel>() {
+            @Override
+            public void onResponse(Call<EgitimEkleModel> call, Response<EgitimEkleModel> response) {
+
+                if(response.isSuccessful()){
+
+
+                    Toast.makeText(getContext(), response.body().getText().toString(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<EgitimEkleModel> call, Throwable t) {
+
+            }
+        });
     }
 
     public void deneyimEkleRequest(String kulid,String sirket,String deneyimalan,String yil){

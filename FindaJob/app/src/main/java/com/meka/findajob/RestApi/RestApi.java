@@ -47,7 +47,7 @@ public interface RestApi {
 
     @FormUrlEncoded
     @POST("/isbul/egitimekle.php")
-    Call<EgitimEkleModel> egitimEkle(@Field("uni") String uni, @Field("bolum") String bolum, @Field("baslangic") String baslangic, @Field("bitis") String bitis);
+    Call<EgitimEkleModel> egitimEkle(@Field("id") String id,@Field("uni") String uni, @Field("bolum") String bolum, @Field("baslangic") String baslangic, @Field("bitis") String bitis);
 
 
 
