@@ -9,10 +9,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.meka.findajob.Models.EgitimListeleModel;
+import com.meka.findajob.Models.SilModel;
 import com.meka.findajob.R;
+import com.meka.findajob.RestApi.ManagerAll;
 import com.meka.findajob.ViewHolder.EgitimViewHolder;
 
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class EgitimAdapter extends RecyclerView.Adapter<EgitimViewHolder> {
 
@@ -41,7 +47,7 @@ public class EgitimAdapter extends RecyclerView.Adapter<EgitimViewHolder> {
         holder.egitimtextDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                egitimSilRequest(list.get(position).getId(),position);
             }
         });
 
@@ -50,5 +56,31 @@ public class EgitimAdapter extends RecyclerView.Adapter<EgitimViewHolder> {
     @Override
     public int getItemCount() {
         return list.size();
+    }
+
+    // egitim silme
+    public void egitimSilRequest(String id,int position){
+
+        Call<SilModel> request= ManagerAll.getInstance().egitimSil(id);
+        request.enqueue(new Callback<SilModel>() {
+            @Override
+            public void onResponse(Call<SilModel> call, Response<SilModel> response) {
+                if(response.isSuccessful()){
+                    deleteToList(position);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<SilModel> call, Throwable t) {
+
+            }
+        });
+    }
+
+    // listeden silinen deneyimi kaldırma
+    public void deleteToList(int position){
+        list.remove(position);
+        notifyItemRemoved(position);
+        notifyDataSetChanged();
     }
 }

@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.chauthai.swipereveallayout.ViewBinderHelper;
 import com.meka.findajob.ViewHolder.DeneyimViewHolder;
 import com.meka.findajob.Models.DeneyimListeleModel;
-import com.meka.findajob.Models.DeneyimSilModel;
+import com.meka.findajob.Models.SilModel;
 import com.meka.findajob.R;
 import com.meka.findajob.RestApi.ManagerAll;
 
@@ -104,10 +104,10 @@ public class DeneyimAdapter extends RecyclerView.Adapter<DeneyimViewHolder> {
 
     public void deneyimSil(String id,int position){
 
-        Call<DeneyimSilModel> request= ManagerAll.getInstance().deneyimSil(id);
-        request.enqueue(new Callback<DeneyimSilModel>() {
+        Call<SilModel> request= ManagerAll.getInstance().deneyimSil(id);
+        request.enqueue(new Callback<SilModel>() {
             @Override
-            public void onResponse(Call<DeneyimSilModel> call, Response<DeneyimSilModel> response) {
+            public void onResponse(Call<SilModel> call, Response<SilModel> response) {
 
                 if(response.isSuccessful()) {
                     Toast.makeText(context, response.body().getText().toString(), Toast.LENGTH_SHORT).show();
@@ -116,7 +116,7 @@ public class DeneyimAdapter extends RecyclerView.Adapter<DeneyimViewHolder> {
             }
 
             @Override
-            public void onFailure(Call<DeneyimSilModel> call, Throwable t) {
+            public void onFailure(Call<SilModel> call, Throwable t) {
 
             }
         });

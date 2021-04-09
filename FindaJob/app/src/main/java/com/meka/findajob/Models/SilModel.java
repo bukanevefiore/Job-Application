@@ -1,6 +1,6 @@
 package com.meka.findajob.Models;
 
-public class DeneyimSilModel{
+public class SilModel {
 	private String text;
 
 	public void setText(String text){
@@ -12,10 +12,9 @@ public class DeneyimSilModel{
 	}
 
 	@Override
- 	public String toString(){
-		return 
-			"DeneyimSilModel{" + 
-			"text = '" + text + '\'' + 
-			"}";
-		}
+	public String toString() {
+		return "SilModel{" +
+				"text='" + text + '\'' +
+				'}';
+	}
 }
