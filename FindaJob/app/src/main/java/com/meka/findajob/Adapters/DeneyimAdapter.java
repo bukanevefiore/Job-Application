@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chauthai.swipereveallayout.ViewBinderHelper;
-import com.meka.findajob.Activity.ViewHolder.DeneyimViewHolder;
+import com.meka.findajob.ViewHolder.DeneyimViewHolder;
 import com.meka.findajob.Models.DeneyimListeleModel;
 import com.meka.findajob.Models.DeneyimSilModel;
 import com.meka.findajob.R;
@@ -47,11 +47,11 @@ public class DeneyimAdapter extends RecyclerView.Adapter<DeneyimViewHolder> {
     // değişkenlere değer atama işlemleri
     @Override
     public void onBindViewHolder(@NonNull DeneyimViewHolder holder, int position) {
-
+/*
         viewBinderHelper.setOpenOnlyOne(true);
         viewBinderHelper.bind(holder.swipeLayout,String.valueOf(list.get(position).getId()));
         viewBinderHelper.closeLayout(String.valueOf(list.get(position).getId()));
-
+*/
         holder.deneyimbolum.setText(list.get(position).getDeneyimalan().toString());
         holder.deneyimsirket.setText(list.get(position).getSirket().toString());
         holder.deneyimyil.setText(list.get(position).getYil());

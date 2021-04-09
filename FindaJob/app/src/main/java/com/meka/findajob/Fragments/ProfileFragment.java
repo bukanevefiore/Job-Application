@@ -17,9 +17,11 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.meka.findajob.Adapters.DeneyimAdapter;
+import com.meka.findajob.Adapters.EgitimAdapter;
 import com.meka.findajob.Models.DeneyimEkleModel;
 import com.meka.findajob.Models.DeneyimListeleModel;
 import com.meka.findajob.Models.EgitimEkleModel;
+import com.meka.findajob.Models.EgitimListeleModel;
 import com.meka.findajob.R;
 import com.meka.findajob.RestApi.ManagerAll;
 import com.meka.findajob.Utils.GetSharedPref;
@@ -38,9 +40,11 @@ public class ProfileFragment extends Fragment {
    View view;
    ImageView deneyimEkleImageView,egitimEkleImageView;
    String kulid;
-   private RecyclerView deneyimRecyclerView;
+   private RecyclerView deneyimRecyclerView,egitimRecyclerView ;
    List<DeneyimListeleModel> list;
+   List<EgitimListeleModel> egitimList;
    DeneyimAdapter deneyimAdapter;
+   EgitimAdapter egitimAdapter;
 
 
 
@@ -53,6 +57,7 @@ public class ProfileFragment extends Fragment {
         tanimlamalar();
         clicks();
         deneyimListele(kulid);
+        egitimListeleRequest(kulid);
 
         return view;
     }
@@ -67,6 +72,11 @@ public class ProfileFragment extends Fragment {
         RecyclerView.LayoutManager layoutManager=new GridLayoutManager(getContext(),1);
         deneyimRecyclerView.setLayoutManager(layoutManager);
         list=new ArrayList<>();
+
+        egitimRecyclerView=view.findViewById(R.id.egitimRecyclerView);
+        RecyclerView.LayoutManager egitimLayoutManager=new GridLayoutManager(getContext(),1);
+        egitimRecyclerView.setLayoutManager(egitimLayoutManager);
+        egitimList=new ArrayList<>();
 
 
     }
@@ -200,6 +210,7 @@ public class ProfileFragment extends Fragment {
         });
     }
 
+    // deneyim ekleme
     public void deneyimEkleRequest(String kulid,String sirket,String deneyimalan,String yil){
 
         Call<DeneyimEkleModel> request= ManagerAll.getInstance().deneyimEkle(kulid, sirket, deneyimalan, yil);
@@ -223,6 +234,7 @@ public class ProfileFragment extends Fragment {
         });
     }
 
+    // deneyim listeleme
     public void deneyimListele(String kulidd){
         Call<List<DeneyimListeleModel>> request=ManagerAll.getInstance().deneyimListele(kulidd);
         request.enqueue(new Callback<List<DeneyimListeleModel>>() {
@@ -242,6 +254,33 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onFailure(Call<List<DeneyimListeleModel>> call, Throwable t) {
 
+            }
+        });
+    }
+
+    // egitim listeleme
+    public void egitimListeleRequest(String id){
+
+        Call<List<EgitimListeleModel>> request=ManagerAll.getInstance().egitimListele(id);
+        request.enqueue(new Callback<List<EgitimListeleModel>>() {
+            @Override
+            public void onResponse(Call<List<EgitimListeleModel>> call, Response<List<EgitimListeleModel>> response) {
+                if(response.body().size()>0){
+
+                    egitimList=response.body();
+                    egitimAdapter=new EgitimAdapter(egitimList,getContext());
+                    egitimRecyclerView.setAdapter(egitimAdapter);
+                    Log.i("egitimler",response.body().toString());
+
+                }else{
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<EgitimListeleModel>> call, Throwable t) {
+
+                Log.e("egitimListeLog",t.getMessage());
             }
         });
     }

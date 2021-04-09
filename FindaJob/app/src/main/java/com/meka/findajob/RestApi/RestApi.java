@@ -7,6 +7,7 @@ import com.meka.findajob.Models.DeneyimListeleModel;
 import com.meka.findajob.Models.DeneyimSilModel;
 import com.meka.findajob.Models.DogrulaModel;
 import com.meka.findajob.Models.EgitimEkleModel;
+import com.meka.findajob.Models.EgitimListeleModel;
 import com.meka.findajob.Models.GirisYapModel;
 import com.meka.findajob.Models.KaydolModel;
 
@@ -49,6 +50,8 @@ public interface RestApi {
     @POST("/isbul/egitimekle.php")
     Call<EgitimEkleModel> egitimEkle(@Field("id") String id,@Field("uni") String uni, @Field("bolum") String bolum, @Field("baslangic") String baslangic, @Field("bitis") String bitis);
 
-
+    @FormUrlEncoded
+    @POST("/isbul/egitimlistele.php")
+    Call<List<EgitimListeleModel>> egitimListele(@Field("kulid") String id);
 
 }

@@ -1,4 +1,4 @@
-package com.meka.findajob.Activity.ViewHolder;
+package com.meka.findajob.ViewHolder;
 
 import android.view.View;
 import android.widget.TextView;
@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chauthai.swipereveallayout.SwipeRevealLayout;
-import com.meka.findajob.Models.DeneyimEkleModel;
 import com.meka.findajob.R;
 
 // tanımlama işlemleri
