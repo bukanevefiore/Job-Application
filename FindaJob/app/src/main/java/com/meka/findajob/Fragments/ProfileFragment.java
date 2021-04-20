@@ -18,10 +18,12 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 import com.meka.findajob.Adapters.DeneyimAdapter;
 import com.meka.findajob.Adapters.EgitimAdapter;
+import com.meka.findajob.Adapters.YetenekAdapter;
 import com.meka.findajob.Models.DeneyimEkleModel;
 import com.meka.findajob.Models.DeneyimListeleModel;
 import com.meka.findajob.Models.EgitimEkleModel;
 import com.meka.findajob.Models.EgitimListeleModel;
+import com.meka.findajob.Models.YetenekListeleModel;
 import com.meka.findajob.R;
 import com.meka.findajob.RestApi.ManagerAll;
 import com.meka.findajob.Utils.GetSharedPref;
@@ -40,11 +42,13 @@ public class ProfileFragment extends Fragment {
    View view;
    ImageView deneyimEkleImageView,egitimEkleImageView;
    String kulid;
-   private RecyclerView deneyimRecyclerView,egitimRecyclerView ;
+   private RecyclerView deneyimRecyclerView,egitimRecyclerView,yetenekRecyclerView ;
    List<DeneyimListeleModel> list;
    List<EgitimListeleModel> egitimList;
+   List<YetenekListeleModel> yetenekList;
    DeneyimAdapter deneyimAdapter;
    EgitimAdapter egitimAdapter;
+   YetenekAdapter yetenekAdapter;
 
 
 
@@ -58,6 +62,7 @@ public class ProfileFragment extends Fragment {
         clicks();
         deneyimListele(kulid);
         egitimListeleRequest(kulid);
+        yetenekListeleRequest(kulid);
 
         return view;
     }
@@ -77,6 +82,11 @@ public class ProfileFragment extends Fragment {
         RecyclerView.LayoutManager egitimLayoutManager=new GridLayoutManager(getContext(),1);
         egitimRecyclerView.setLayoutManager(egitimLayoutManager);
         egitimList=new ArrayList<>();
+
+        yetenekRecyclerView=view.findViewById(R.id.yetenekRecyclerView);
+        RecyclerView.LayoutManager yetenekLayoutManager=new GridLayoutManager(getContext(),1);
+        yetenekRecyclerView.setLayoutManager(yetenekLayoutManager);
+        yetenekList=new ArrayList<>();
 
 
     }
@@ -177,11 +187,13 @@ public class ProfileFragment extends Fragment {
                 bitis=egitimEkleBitis.getText().toString();
                 egitimEkleRequest(kulid,okul,bolum,baslangic,bitis);
 
+                Log.i("egitimekle",egitimEkleOkul.getText().toString());
+
                 egitimEkleOkul.setText("");
                 egitimEkleBolum.setText("");
                 egitimEkleBaslangic.setText("");
                 egitimEkleBitis.setText("");
-
+                egitimListeleRequest(kulid);
                 alertDialog.cancel();
             }
         });
@@ -281,6 +293,31 @@ public class ProfileFragment extends Fragment {
             public void onFailure(Call<List<EgitimListeleModel>> call, Throwable t) {
 
                 Log.e("egitimListeLog",t.getMessage());
+            }
+        });
+    }
+
+    public void yetenekListeleRequest(String id){
+
+        Call<List<YetenekListeleModel>> request=ManagerAll.getInstance().yetenekListele(id);
+        request.enqueue(new Callback<List<YetenekListeleModel>>() {
+            @Override
+            public void onResponse(Call<List<YetenekListeleModel>> call, Response<List<YetenekListeleModel>> response) {
+
+                if(response.isSuccessful()){
+                    if(response.body().size()>0){
+
+                        yetenekList=response.body();
+                        yetenekAdapter=new YetenekAdapter(yetenekList,getContext());
+                        yetenekRecyclerView.setAdapter(yetenekAdapter);
+                        Log.i("yetenek",response.body().toString());
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<YetenekListeleModel>> call, Throwable t) {
+                Log.e("yetenekListeLog",t.getMessage());
             }
         });
     }

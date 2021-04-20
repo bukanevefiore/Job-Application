@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.chauthai.swipereveallayout.SwipeRevealLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    app:dragEdge="right"
+    android:id="@+id/yetenekswipeLayout"
+    app:mode="same_level"
+    android:layout_height="wrap_content">
+
+    <!-- swipe layout -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:id="@+id/yetenektextEdit"
+            android:gravity="center"
+            android:background="#EBBDF3"
+            android:text="EDIT"
+            android:textSize="14sp"
+            android:textColor="#5D2767"></TextView>
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:id="@+id/yetenektextDelete"
+            android:gravity="center"
+            android:background="#FCFA9292"
+            android:text="DELETE"
+            android:textSize="14sp"
+            android:textColor="#5D2767"></TextView>
+    </LinearLayout>
+
+
+    <!-- main layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="-30dp"
+            android:padding="8dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_baseline_emoji_events_24"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:textColor="#732780"
+                android:id="@+id/yetenekisim"
+                android:text="Deneyim bölümü"></TextView>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    </com.chauthai.swipereveallayout.SwipeRevealLayout>
