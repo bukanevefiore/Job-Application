@@ -8,6 +8,8 @@ public class YetenekListeleModel {
 
     private String id;
 
+    private String yetenekderece;
+
     public String getKulid() {
         return kulid;
     }
@@ -32,12 +34,21 @@ public class YetenekListeleModel {
         this.id = id;
     }
 
+    public String getYetenekderece() {
+        return yetenekderece;
+    }
+
+    public void setYetenekderece(String yetenekderece) {
+        this.yetenekderece = yetenekderece;
+    }
+
     @Override
     public String toString() {
         return "YetenekListeleModel{" +
                 "kulid='" + kulid + '\'' +
                 ", yetenek='" + yetenek + '\'' +
                 ", id='" + id + '\'' +
+                ", yetenekderece='" + yetenekderece + '\'' +
                 '}';
     }
 }

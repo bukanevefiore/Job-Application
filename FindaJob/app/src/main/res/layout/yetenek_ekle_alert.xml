@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#481351"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        android:backgroundTint="#481351"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ounded_shape5"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="18dp"
+            android:textColor="#54195E"
+            android:textStyle="bold"
+            android:text="You can add capability"></TextView>
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="300dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:textColorHint="#9134A1"
+            android:layout_height="wrap_content"
+            android:hint="Enter Capability"
+
+            >
+
+           <LinearLayout
+               android:layout_marginTop="30dp"
+               android:layout_width="wrap_content"
+               android:layout_gravity="center"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal">
+               <TextView
+                   android:id="@+id/dereceYetenekTextView"
+                   android:layout_width="wrap_content"
+                   android:text="0"
+                   android:textSize="20sp"
+                   android:layout_height="wrap_content"/>
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:text="%"
+                   android:textSize="20sp"
+                   android:layout_height="wrap_content"/>
+
+           </LinearLayout>
+
+           <ProgressBar
+               android:id="@+id/progressyetenek"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:progressTint="#7B298A"
+               style="@style/Widget.AppCompat.ProgressBar.Horizontal"/>
+
+            <SeekBar
+                android:id="@+id/seekbarYetenek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/yetenekEkleText"
+                android:layout_width="match_parent"
+                android:textColor="#7F318C"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/transparent" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_margin="15dp"
+                android:layout_gravity="center"
+                android:id="@+id/yetenekEkleKaydetButon"
+                android:textColor="#FFFCFC"
+                android:text="SAVE"
+                android:background="@drawable/ounded_shape"></androidx.appcompat.widget.AppCompatButton>
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

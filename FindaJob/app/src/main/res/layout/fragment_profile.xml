@@ -241,6 +241,7 @@
             android:layout_marginLeft="25dp"></TextView>
 
         <ImageView
+            android:id="@+id/yetenekEkleImageView"
             android:layout_width="0dp"
             android:layout_weight="0.5"
             android:layout_height="20dp"

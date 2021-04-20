@@ -10,6 +10,7 @@ import com.meka.findajob.Models.EgitimEkleModel;
 import com.meka.findajob.Models.EgitimListeleModel;
 import com.meka.findajob.Models.GirisYapModel;
 import com.meka.findajob.Models.KaydolModel;
+import com.meka.findajob.Models.YetenekEkleModel;
 import com.meka.findajob.Models.YetenekListeleModel;
 
 import java.util.List;
@@ -62,5 +63,10 @@ public interface RestApi {
     @FormUrlEncoded
     @POST("/isbul/yeteneklistele.php")
     Call<List<YetenekListeleModel>> yetenekListele(@Field("kulid") String id);
+
+    @FormUrlEncoded
+    @POST("/isbul/yetenekekle.php")
+    Call<YetenekEkleModel> yetenekEkle(@Field("id") String id, @Field("yetenek") String yetenek, @Field("yetenekDerece") String yetenekDerece );
+
 
 }

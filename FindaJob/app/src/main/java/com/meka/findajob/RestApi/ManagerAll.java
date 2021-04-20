@@ -10,6 +10,7 @@ import com.meka.findajob.Models.EgitimEkleModel;
 import com.meka.findajob.Models.EgitimListeleModel;
 import com.meka.findajob.Models.GirisYapModel;
 import com.meka.findajob.Models.KaydolModel;
+import com.meka.findajob.Models.YetenekEkleModel;
 import com.meka.findajob.Models.YetenekListeleModel;
 
 import java.util.List;
@@ -87,5 +88,12 @@ public class ManagerAll extends BaseManager {
         Call<List<YetenekListeleModel>> x = getRestApi().yetenekListele(id);
         return x;
     }
+
+    public Call<YetenekEkleModel> yetenekEkle(String id, String yetenek, String yetenekDerece)
+    {
+        Call<YetenekEkleModel> x=getRestApi().yetenekEkle(id, yetenek, yetenekDerece);
+        return x;
+    }
+
 
 }

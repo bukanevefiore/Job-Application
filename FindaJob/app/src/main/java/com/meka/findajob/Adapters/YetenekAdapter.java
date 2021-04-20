@@ -1,6 +1,7 @@
 package com.meka.findajob.Adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +38,23 @@ public class YetenekAdapter extends RecyclerView.Adapter<YetenekViewHolder> {
     public void onBindViewHolder(@NonNull YetenekViewHolder holder, int position) {
 
         holder.yetenekisim.setText(list.get(position).getYetenek());
+        holder.dereceYetenekListeleTextView.setText(list.get(position).getYetenekderece());
+        // progres barı ayarlama
+        String derece=list.get(position).getYetenekderece();
+        Log.i("derecee",derece);
+
+
+        int dereceint=Integer.parseInt(derece);
+        Log.i("derecee2", String.valueOf(dereceint));
+
+        int i=0;
+        for(i=0;i<dereceint;i++) {
+            holder.progressyetenekListele.setProgress(i);
+        }
+
+
+
+
 
         holder.yetenektextDelete.setOnClickListener(new View.OnClickListener() {
             @Override

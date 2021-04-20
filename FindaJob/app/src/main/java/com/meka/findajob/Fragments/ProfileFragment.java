@@ -13,6 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -23,6 +26,7 @@ import com.meka.findajob.Models.DeneyimEkleModel;
 import com.meka.findajob.Models.DeneyimListeleModel;
 import com.meka.findajob.Models.EgitimEkleModel;
 import com.meka.findajob.Models.EgitimListeleModel;
+import com.meka.findajob.Models.YetenekEkleModel;
 import com.meka.findajob.Models.YetenekListeleModel;
 import com.meka.findajob.R;
 import com.meka.findajob.RestApi.ManagerAll;
@@ -40,7 +44,7 @@ public class ProfileFragment extends Fragment {
 
 
    View view;
-   ImageView deneyimEkleImageView,egitimEkleImageView;
+   ImageView deneyimEkleImageView,egitimEkleImageView,yetenekEkleImageView;
    String kulid;
    private RecyclerView deneyimRecyclerView,egitimRecyclerView,yetenekRecyclerView ;
    List<DeneyimListeleModel> list;
@@ -88,6 +92,8 @@ public class ProfileFragment extends Fragment {
         yetenekRecyclerView.setLayoutManager(yetenekLayoutManager);
         yetenekList=new ArrayList<>();
 
+        yetenekEkleImageView=view.findViewById(R.id.yetenekEkleImageView);
+
 
     }
     public void clicks(){
@@ -108,8 +114,17 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-    }
+        // yetenek ekle
+        yetenekEkleImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                openYetenekAlert();
+            }
+        });
+
+    }
+//  deneyim alert
     public void openDeneyimAlert(){
 
         LayoutInflater layoutInflater=this.getLayoutInflater();
@@ -200,6 +215,88 @@ public class ProfileFragment extends Fragment {
 
     }
 
+    //  yetenek alert
+    public void openYetenekAlert(){
+
+        LayoutInflater layoutInflater=this.getLayoutInflater();
+        view=layoutInflater.inflate(R.layout.yetenek_ekle_alert,null);
+
+        final TextInputEditText yetenekEkleText;
+        final TextView dereceYetenekTextView;
+        ProgressBar progressyetenek;
+        SeekBar seekbarYetenek;
+        AppCompatButton yetenekEkleKaydetButon;
+
+        yetenekEkleText=view.findViewById(R.id.yetenekEkleText);
+        dereceYetenekTextView=view.findViewById(R.id.dereceYetenekTextView);
+        progressyetenek=view.findViewById(R.id.progressyetenek);
+        seekbarYetenek=view.findViewById(R.id.seekbarYetenek);
+        yetenekEkleKaydetButon=view.findViewById(R.id.yetenekEkleKaydetButon);
+
+/*
+        int i = 0;
+        for(i=0;i<=30;i++){
+            progressyetenek.setProgress(i);
+        }
+
+ */
+        
+
+        // seebar
+        seekbarYetenek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                progressyetenek.setProgress(progress);
+                dereceYetenekTextView.setText(progress+"");
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        // alert
+        AlertDialog.Builder alert=new AlertDialog.Builder(getContext());
+        alert.setView(view);
+        alert.setCancelable(true);
+        final AlertDialog alertDialog=alert.create();
+
+        alertDialog.show(); // SHOW
+
+
+        yetenekEkleKaydetButon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
+                String yetenek="",yetenekderece="";
+                yetenek=yetenekEkleText.getText().toString();
+                yetenekderece=dereceYetenekTextView.getText().toString();
+                Log.i("yetenekderece",yetenekderece);
+
+                yetenekEkleRequest(kulid,yetenek,yetenekderece);
+                yetenekEkleText.setText("");
+                dereceYetenekTextView.setText("");
+                yetenekListeleRequest(kulid);
+                alertDialog.cancel();  // CANSEL
+
+
+
+            }
+        });
+
+
+
+    }
+
     // egitim ekle istek
     private void egitimEkleRequest(String kulid, String okul, String bolum, String baslangic, String bitis) {
 
@@ -244,6 +341,28 @@ public class ProfileFragment extends Fragment {
 
             }
         });
+    }
+
+    // yetenek ekle
+    public void yetenekEkleRequest(String kulid,String yetenek,String yetenekderece){
+
+        Call<YetenekEkleModel> request=ManagerAll.getInstance().yetenekEkle(kulid, yetenek, yetenekderece);
+        request.enqueue(new Callback<YetenekEkleModel>() {
+            @Override
+            public void onResponse(Call<YetenekEkleModel> call, Response<YetenekEkleModel> response) {
+                if(response.isSuccessful()){
+                    Toast.makeText(getContext(), response.body().getText(), Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getContext(), response.body().getText(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<YetenekEkleModel> call, Throwable t) {
+
+            }
+        });
+
     }
 
     // deneyim listeleme
