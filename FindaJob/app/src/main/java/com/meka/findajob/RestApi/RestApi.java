@@ -68,5 +68,8 @@ public interface RestApi {
     @POST("/isbul/yetenekekle.php")
     Call<YetenekEkleModel> yetenekEkle(@Field("id") String id, @Field("yetenek") String yetenek, @Field("yetenekDerece") String yetenekDerece );
 
+    @FormUrlEncoded
+    @POST("/isbul/yeteneksil.php")
+    Call<SilModel> yetenekSil(@Field("id") String id);
 
 }

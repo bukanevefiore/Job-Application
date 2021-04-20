@@ -95,5 +95,11 @@ public class ManagerAll extends BaseManager {
         return x;
     }
 
+    public Call<SilModel> yetenekSil(String id)
+    {
+        Call<SilModel> x=getRestApi().yetenekSil(id);
+        return x;
+    }
+
 
 }
