@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -31,6 +32,7 @@ public class DogrulamaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dogrulama);
         tanimlamalar();
         Toast.makeText(getApplicationContext(), getIntent().getStringExtra("kod"), Toast.LENGTH_LONG).show();
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);  // edittexler arası klavye ile geçiş
     }
 
     public void tanimlamalar(){

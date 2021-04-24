@@ -83,7 +83,7 @@ public class YetenekAdapter extends RecyclerView.Adapter<YetenekViewHolder> {
             public void onResponse(Call<SilModel> call, Response<SilModel> response) {
                 if(response.isSuccessful()){
                     deleteToList(position);
-                    Toast.makeText(context, response.body().getText(), Toast.LENGTH_SHORT).show();
+
                 }else{
                     Toast.makeText(context, response.body().getText(), Toast.LENGTH_SHORT).show();
                 }

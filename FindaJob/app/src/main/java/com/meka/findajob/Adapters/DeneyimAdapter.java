@@ -62,6 +62,7 @@ public class DeneyimAdapter extends RecyclerView.Adapter<DeneyimViewHolder> {
 
                 deneyimSil(list.get(position).getId().toString(),position);
 
+
             }
         });
 
@@ -110,7 +111,7 @@ public class DeneyimAdapter extends RecyclerView.Adapter<DeneyimViewHolder> {
             public void onResponse(Call<SilModel> call, Response<SilModel> response) {
 
                 if(response.isSuccessful()) {
-                    Toast.makeText(context, response.body().getText().toString(), Toast.LENGTH_SHORT).show();
+
                     deleteToList(position);
                 }
             }

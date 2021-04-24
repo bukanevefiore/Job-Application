@@ -26,6 +26,7 @@ import com.meka.findajob.Models.DeneyimEkleModel;
 import com.meka.findajob.Models.DeneyimListeleModel;
 import com.meka.findajob.Models.EgitimEkleModel;
 import com.meka.findajob.Models.EgitimListeleModel;
+import com.meka.findajob.Models.KullaniciBilgiModel;
 import com.meka.findajob.Models.YetenekEkleModel;
 import com.meka.findajob.Models.YetenekListeleModel;
 import com.meka.findajob.R;
@@ -53,6 +54,7 @@ public class ProfileFragment extends Fragment {
    DeneyimAdapter deneyimAdapter;
    EgitimAdapter egitimAdapter;
    YetenekAdapter yetenekAdapter;
+   TextView userMailAdres,profUserName;
 
 
 
@@ -67,12 +69,13 @@ public class ProfileFragment extends Fragment {
         deneyimListele(kulid);
         egitimListeleRequest(kulid);
         yetenekListeleRequest(kulid);
+        kullaniciBilgiGetirRequest(kulid);
 
         return view;
     }
 
     public void tanimlamalar(){
-
+        // deneyim
         deneyimEkleImageView=view.findViewById(R.id.deneyimEkleImageView);
         egitimEkleImageView=view.findViewById(R.id.egitimEkleImageView);
         GetSharedPref getSharedPref=new GetSharedPref(getActivity());
@@ -82,20 +85,27 @@ public class ProfileFragment extends Fragment {
         deneyimRecyclerView.setLayoutManager(layoutManager);
         list=new ArrayList<>();
 
+        // eğititm
         egitimRecyclerView=view.findViewById(R.id.egitimRecyclerView);
         RecyclerView.LayoutManager egitimLayoutManager=new GridLayoutManager(getContext(),1);
         egitimRecyclerView.setLayoutManager(egitimLayoutManager);
         egitimList=new ArrayList<>();
 
+        // yetenek
         yetenekRecyclerView=view.findViewById(R.id.yetenekRecyclerView);
         RecyclerView.LayoutManager yetenekLayoutManager=new GridLayoutManager(getContext(),1);
         yetenekRecyclerView.setLayoutManager(yetenekLayoutManager);
         yetenekList=new ArrayList<>();
-
         yetenekEkleImageView=view.findViewById(R.id.yetenekEkleImageView);
+
+        // genel bilgiler
+        userMailAdres=view.findViewById(R.id.userMailAdres);
+        profUserName=view.findViewById(R.id.profUserName);
 
 
     }
+
+    // click işlemleri
     public void clicks(){
         // deneyim ekle
         deneyimEkleImageView.setOnClickListener(new View.OnClickListener() {
@@ -440,4 +450,28 @@ public class ProfileFragment extends Fragment {
             }
         });
     }
+
+    // kullanıcı bilgisi listele istek
+    public void kullaniciBilgiGetirRequest(String id){
+
+        Call<List<KullaniciBilgiModel>> request=ManagerAll.getInstance().kullaniciBilgi(id);
+        request.enqueue(new Callback<List<KullaniciBilgiModel>>() {
+            @Override
+            public void onResponse(Call<List<KullaniciBilgiModel>> call, Response<List<KullaniciBilgiModel>> response) {
+
+                if(response.isSuccessful()){
+
+                    userMailAdres.setText(response.body().get(0).getMailadres().toString());
+                    profUserName.setText(response.body().get(0).getKullaniciadi().toString());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<KullaniciBilgiModel>> call, Throwable t) {
+
+            }
+        });
+    }
+
+
 }
