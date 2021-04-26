@@ -19,6 +19,6 @@
     <fragment
         android:name="com.meka.findajob.Fragments.IlanlarFragment"
         android:id="@+id/menuIlanlar"
-        android:label="Classifieds"
+        android:label="Job Postings"
         tools:layout="@layout/fragment_ilanlar"/>
 </navigation>

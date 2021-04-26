@@ -6,6 +6,8 @@
     <string name="notifications">Notifications</string>
     <string name="settings">Settings</string>
     <string name="aboutUs">AboutUs</string>
-    <string name="ilanlar">Classifieds</string>
+    <string name="ilanlar">Job Postings</string>
+    <string name="ilanlardetay">Posting Details</string>
+
 
 </resources>

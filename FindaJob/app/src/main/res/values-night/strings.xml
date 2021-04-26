@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="notifications">notifications</string>
-    <string name="settings">settings</string>
-    <string name="aboutUs">aboutUs</string>
-    <string name="ilanlar">ilanlar</string>
+    <string name="profile">Profile</string>
+    <string name="notifications">Notifications</string>
+    <string name="settings">Settings</string>
+    <string name="aboutUs">AboutUs</string>
+    <string name="ilanlar">Job Postings</string>
+
 
 </resources>

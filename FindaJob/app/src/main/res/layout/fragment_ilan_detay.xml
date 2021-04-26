@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragments.IlanDetayFragment">
+
+    <LinearLayout
+        android:id="@+id/layoutToolbar"
+        android:layout_width="match_parent"
+        android:background="#3C0945"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:layout_alignParentTop="true"
+        android:layout_height="?actionBarSize">
+
+        <ImageView
+
+            android:layout_width="0dp"
+            android:layout_weight="10"
+            android:layout_height="30dp"
+            android:id="@+id/imageMenu"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:contentDescription="@string/app_name"
+            app:tint="#ffff"></ImageView>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="70"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:id="@+id/textTitle"
+            android:layout_marginStart="15dp"
+            android:textColor="#E1B9E8"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:text="@string/ilanlardetay"></TextView>
+
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/layoutaltbar"
+        android:layout_below="@id/layoutToolbar">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <!-- genel bilgiler -->
+        <androidx.cardview.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="3dp"
+            card_view:cardElevation="10dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:gravity="center"
+                android:text="ilan detay baslik"
+                android:id="@+id/ilanDetayIlanBaslik"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#872298"
+                android:layout_margin="5dp"
+                android:layout_marginLeft="25dp">
+            </TextView>
+
+            <TextView
+                android:gravity="center"
+                android:text="ilan detay aciklama"
+                android:id="@+id/ilanDetayIlanAciklama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#872298"
+                android:layout_margin="5dp"
+                android:layout_marginLeft="25dp">
+            </TextView>
+
+        </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+            <!-- iş tanımı -->
+            <androidx.cardview.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                app:cardCornerRadius="3dp"
+                card_view:cardElevation="10dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:text="Job Description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="#872298"
+                        android:layout_margin="5dp"
+                        android:layout_marginLeft="25dp">
+                    </TextView>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- genel nitelikler -->
+            <androidx.cardview.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                app:cardCornerRadius="3dp"
+                card_view:cardElevation="10dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:text="General Qualifications"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="#872298"
+                        android:layout_margin="5dp"
+                        android:layout_marginLeft="25dp">
+                    </TextView>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- pozisyon bilgiler -->
+            <androidx.cardview.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                app:cardCornerRadius="3dp"
+                card_view:cardElevation="10dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:text="Position Information"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="#872298"
+                        android:layout_margin="5dp"
+                        android:layout_marginLeft="25dp">
+                    </TextView>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- aday kriterleri -->
+            <androidx.cardview.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                app:cardCornerRadius="3dp"
+                card_view:cardElevation="10dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:text="Candidate Criteria"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="#872298"
+                        android:layout_margin="5dp"
+                        android:layout_marginLeft="25dp">
+                    </TextView>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/layoutaltbar"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:background="@drawable/ounded_shape8"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_height="?actionBarSize">
+
+        <Button
+            android:id="@+id/buttonBasvur"
+            android:layout_width="0dp"
+            android:textSize="17sp"
+            android:layout_weight="4"
+            android:layout_marginLeft="-5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_transparent"
+            android:text="Apply" />
+
+
+        <Button
+            android:id="@+id/buttonFavoriyeAl"
+            android:layout_width="0dp"
+            android:textSize="15sp"
+            android:layout_weight="4"
+            android:layout_marginLeft="-5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_transparent"
+            android:text="Add to favorıtes" />
+
+
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
