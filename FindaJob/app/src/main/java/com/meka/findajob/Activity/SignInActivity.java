@@ -72,7 +72,7 @@ public class SignInActivity extends AppCompatActivity {
                 sifre=parolaSignInText.getText().toString();
                 mailSignInText.setText("");
                 parolaSignInText.setText("");
-                if(mail !="" && sifre != "") {
+                if(mail =="" && sifre == "") {
                     girisYap(mail, sifre);
                     Toast.makeText(getApplicationContext(), "Lütfen tüm alanları doldurun", Toast.LENGTH_SHORT).show();
                 }
