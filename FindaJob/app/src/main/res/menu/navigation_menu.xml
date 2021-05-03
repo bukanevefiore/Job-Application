@@ -22,5 +22,6 @@
         android:id="@+id/menuAboutUs"
         android:icon="@drawable/aboutus"
         android:title="@string/aboutUs"></item>
+
 </menu>
 

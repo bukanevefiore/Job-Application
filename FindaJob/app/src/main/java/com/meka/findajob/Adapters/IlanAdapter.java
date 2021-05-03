@@ -50,14 +50,13 @@ public class IlanAdapter extends RecyclerView.Adapter<IlanViewHolder> {
             @Override
             public void onClick(View v) {
 
-                //ChangeFragments changeFragment=new ChangeFragments(context);
-                //changeFragment.changeWithParemeters(new IlanDetayFragment(),ilanModelList.get(position).getId());
+                ChangeFragments changeFragment=new ChangeFragments(context);
+                changeFragment.changeWithParemeters(new IlanDetayFragment(),ilanModelList.get(position).getId());
 
             }
         });
 
-        GetSharedPref getSharedPref=new GetSharedPref(activity);
-        getSharedPref.setSessioniki(ilanModelList.get(position).getId());
+
 
     }
 

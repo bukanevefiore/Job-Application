@@ -28,7 +28,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class IlanlarFragment extends Fragment implements View.OnClickListener{
+public class IlanlarFragment extends Fragment {
 
     View view;
     private RecyclerView ilanListeleRecyclerView;
@@ -59,16 +59,10 @@ public class IlanlarFragment extends Fragment implements View.OnClickListener{
         RecyclerView.LayoutManager layoutManager=new GridLayoutManager(getContext(),1);
         ilanListeleRecyclerView.setLayoutManager(layoutManager);
         ilanModelList=new ArrayList<>();
-        ilanListeleRecyclerView.setOnClickListener((View.OnClickListener) this);
+
 
     }
-    @Override
-    public void onClick(View v) {
 
-        NavDirections action=new ActionOnlyNavDirections(R.id.action_menuIlanlar_to_ilanDetayFragment22);
-        action.getArguments().putString("ilanid",ilanid);
-        Navigation.findNavController(v).navigate(action);
-    }
 
 
     public void ilanListeleRequest(String id){

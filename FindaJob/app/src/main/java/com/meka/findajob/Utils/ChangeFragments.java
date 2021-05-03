@@ -21,7 +21,7 @@ public class ChangeFragments {
 
         public void change(Fragment fragment){
             ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.framelayout,fragment,"fragment")
+                    .replace(R.id.navHostFragment,fragment,"fragment")
                     .setTransitionStyle(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     .commit();
 
@@ -34,7 +34,7 @@ public class ChangeFragments {
             fragment.setArguments(bundle);
 
             ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.framelayout,fragment,"fragment")
+                    .replace(R.id.navHostFragment,fragment,"fragment")
                     .setTransitionStyle(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     .commit();
 
