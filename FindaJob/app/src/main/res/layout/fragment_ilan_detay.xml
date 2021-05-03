@@ -76,7 +76,7 @@
                 android:id="@+id/ilanDetayIlanBaslik"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textSize="17sp"
                 android:textStyle="bold"
                 android:textColor="#872298"
                 android:layout_margin="5dp"
@@ -95,6 +95,19 @@
                 android:layout_margin="5dp"
                 android:layout_marginLeft="25dp">
             </TextView>
+            <TextView
+                android:gravity="center"
+                android:text="İlan Adres"
+                android:id="@+id/ilanDetayAdres"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#872298"
+                android:layout_margin="5dp"
+                android:layout_marginLeft="25dp">
+            </TextView>
+
 
         </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -119,7 +132,19 @@
                         android:text="Job Description"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="15sp"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#872298"
+                        android:layout_margin="5dp"
+                        android:layout_marginLeft="25dp">
+                    </TextView>
+                    <TextView
+                        android:text="İş tanımı buraya yapılacak.............."
+                        android:paddingLeft="15dp"
+                        android:id="@+id/ilanDetayIsTanimi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
                         android:textStyle="bold"
                         android:textColor="#872298"
                         android:layout_margin="5dp"
@@ -149,12 +174,18 @@
                         android:text="General Qualifications"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="15sp"
+                        android:textSize="16sp"
                         android:textStyle="bold"
                         android:textColor="#872298"
                         android:layout_margin="5dp"
                         android:layout_marginLeft="25dp">
                     </TextView>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/ilanDetayNitelikRecyclerView"
+                        android:layout_height="wrap_content"/>
 
                 </LinearLayout>
 
@@ -180,12 +211,106 @@
                         android:text="Position Information"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="15sp"
+                        android:textSize="16sp"
                         android:textStyle="bold"
                         android:textColor="#872298"
                         android:layout_margin="5dp"
                         android:layout_marginLeft="25dp">
                     </TextView>
+                    <TextView
+                        android:text="* Company Sector"
+                        android:paddingLeft="15sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#872298"
+                        android:layout_margin="5dp"
+                        android:layout_marginLeft="25dp">
+                    </TextView>
+                    <TextView
+                        android:text="Yazılım Sektörü"
+                        android:paddingLeft="15sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:id="@+id/ilanDetayFirmaSektoru"
+                        android:textStyle="bold"
+                        android:textColor="#872298"
+                        android:layout_margin="5dp"
+                        android:layout_marginLeft="25dp">
+                    </TextView>
+                    <TextView
+                        android:text="* Mode of Operation"
+                        android:paddingLeft="15sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#872298"
+                        android:layout_margin="5dp"
+                        android:layout_marginLeft="25dp">
+                    </TextView>
+                    <TextView
+                        android:text="Calısma Sekli"
+                        android:paddingLeft="15sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:id="@+id/ilanDetayCalısmaSekli"
+                        android:textStyle="bold"
+                        android:textColor="#872298"
+                        android:layout_margin="5dp"
+                        android:layout_marginLeft="25dp">
+                    </TextView>
+                    <TextView
+                        android:text="* Department"
+                        android:paddingLeft="15sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#872298"
+                        android:layout_margin="5dp"
+                        android:layout_marginLeft="25dp">
+                    </TextView>
+                    <TextView
+                        android:text="Departman"
+                        android:paddingLeft="15sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:id="@+id/ilanDetayDepartman"
+                        android:textStyle="bold"
+                        android:textColor="#872298"
+                        android:layout_margin="5dp"
+                        android:layout_marginLeft="25dp">
+                    </TextView>
+
+                    <TextView
+                        android:text="* Position Level"
+                        android:paddingLeft="15sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#872298"
+                        android:layout_margin="5dp"
+                        android:layout_marginLeft="25dp">
+                    </TextView>
+                    <TextView
+                        android:text="Pozisyon"
+                        android:paddingLeft="15sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:id="@+id/ilanDetayPozisyon"
+                        android:textStyle="bold"
+                        android:textColor="#872298"
+                        android:layout_margin="5dp"
+                        android:layout_marginLeft="25dp">
+                    </TextView>
+
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -210,12 +335,59 @@
                         android:text="Candidate Criteria"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="15sp"
+                        android:textSize="16sp"
                         android:textStyle="bold"
                         android:textColor="#872298"
                         android:layout_margin="5dp"
                         android:layout_marginLeft="25dp">
                     </TextView>
+                    <TextView
+                        android:text="* Experience"
+                        android:paddingLeft="15sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:textColor="#872298"
+                        android:layout_margin="5dp"
+                        android:layout_marginLeft="25dp">
+                    </TextView>
+                    <TextView
+                        android:text="Tecrübe"
+                        android:paddingLeft="15sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:id="@+id/ilanDetayTecrube"
+                        android:textStyle="bold"
+                        android:textColor="#872298"
+                        android:layout_margin="5dp"
+                        android:layout_marginLeft="25dp">
+                    </TextView>
+                    <TextView
+                        android:text="* Mode of Operation"
+                        android:paddingLeft="15sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:textColor="#872298"
+                        android:layout_margin="5dp"
+                        android:layout_marginLeft="25dp">
+                    </TextView>
+                    <TextView
+                        android:text="Education Level"
+                        android:paddingLeft="15sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:id="@+id/ilanDetayEgitimSeviyesi"
+                        android:textStyle="bold"
+                        android:textColor="#872298"
+                        android:layout_margin="5dp"
+                        android:layout_marginLeft="25dp">
+                    </TextView>
+
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -232,7 +404,7 @@
         android:layout_height="?actionBarSize">
 
         <Button
-            android:id="@+id/buttonBasvur"
+            android:id="@+id/ilanDetayButtonBasvur"
             android:layout_width="0dp"
             android:textSize="17sp"
             android:layout_weight="4"
@@ -244,7 +416,7 @@
 
 
         <Button
-            android:id="@+id/buttonFavoriyeAl"
+            android:id="@+id/ilanDetayButtonFavoriyeAl"
             android:layout_width="0dp"
             android:textSize="15sp"
             android:layout_weight="4"
