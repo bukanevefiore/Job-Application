@@ -2,18 +2,26 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/menuIlanlar"
-        android:icon="@drawable/ic_baseline_account_circle_24"
-        android:title="@string/ilanlar"></item>
-    <item
         android:id="@+id/menuProfile"
         android:icon="@drawable/ic_baseline_account_circle_24"
         android:title="@string/profile"></item>
+    <item
+        android:id="@+id/menuIlanlar"
+        android:icon="@drawable/ic_baseline_account_circle_24"
+        android:title="@string/ilanlar"></item>
 
     <item
-        android:id="@+id/menuNotifications"
+        android:id="@+id/menuMyApplications"
         android:icon="@drawable/ic_baseline_notifications_active_24"
-        android:title="@string/notifications"></item>
+        android:title="@string/myapplications"></item>
+    <item
+        android:id="@+id/menuShareAd"
+        android:icon="@drawable/ic_baseline_share_24"
+        android:title="@string/sharead"></item>
+    <item
+        android:id="@+id/menuMyFavoriteAds"
+        android:icon="@drawable/ic_baseline_favorite_24"
+        android:title="@string/myfavoriteads"></item>
     <item
         android:id="@+id/menuSettings"
         android:icon="@drawable/ic_baseline_settings_24"
@@ -24,4 +32,5 @@
         android:title="@string/aboutUs"></item>
 
 </menu>
+
 

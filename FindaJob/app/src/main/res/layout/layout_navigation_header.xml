@@ -3,9 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="20dp"
+    android:paddingTop="20dp"
+    android:paddingLeft="20dp"
     android:background="#3C0945"
-    android:layout_height="wrap_content">
+    android:layout_height="160dp">
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:layout_width="70dp"
@@ -26,16 +27,33 @@
         app:layout_constraintTop_toTopOf="@id/imageProfile"></View>
 
     <TextView
+        android:id="@+id/nameSurname"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        app:layout_constraintBottom_toTopOf="@id/viewSupporter"
-        app:layout_constraintStart_toEndOf="@id/imageProfile"
-        android:textStyle="bold"
+        android:text="Name Surname"
         android:textColor="#EFA9FB"
-        android:id="@+id/nameSurname"
         android:textSize="18sp"
-        android:text="Name Surname"/>
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.619" />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Name Surname"
+        android:textColor="#EFA9FB"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.898" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

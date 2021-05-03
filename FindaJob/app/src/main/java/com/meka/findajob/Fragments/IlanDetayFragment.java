@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -13,12 +14,16 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.meka.findajob.Adapters.IlanDetayNitelikAdapter;
 import com.meka.findajob.Models.IlanDetayModel;
+import com.meka.findajob.Models.IlanDetayNitelikModel;
 import com.meka.findajob.R;
 import com.meka.findajob.RestApi.ManagerAll;
 import com.meka.findajob.Utils.ChangeFragments;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -35,6 +40,8 @@ public class IlanDetayFragment extends Fragment {
     Button ilanDetayButtonBasvur,ilanDetayButtonFavoriyeAl;
     RecyclerView ilanDetayNitelikRecyclerView;
     ImageView imageGeri;
+    List<IlanDetayNitelikModel> list;
+    IlanDetayNitelikAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,6 +61,8 @@ public class IlanDetayFragment extends Fragment {
         ilanDetayButtonFavoriyeAl=view.findViewById(R.id.ilanDetayButtonFavoriyeAl);
         ilanDetayButtonBasvur=view.findViewById(R.id.ilanDetayButtonBasvur);
         ilanDetayNitelikRecyclerView=view.findViewById(R.id.ilanDetayNitelikRecyclerView);
+        RecyclerView.LayoutManager layoutManager=new GridLayoutManager(getContext(),1);
+        ilanDetayNitelikRecyclerView.setLayoutManager(layoutManager);
         ilanDetayIlanBaslik=view.findViewById(R.id.ilanDetayIlanBaslik);
         ilanDetayIlanAciklama=view.findViewById(R.id.ilanDetayIlanAciklama);
         ilanDetayAdres=view.findViewById(R.id.ilanDetayAdres);
@@ -71,6 +80,10 @@ public class IlanDetayFragment extends Fragment {
                 changeFragment.change(new IlanlarFragment());
             }
         });
+
+        list=new ArrayList<>();
+
+
 
     }
 
@@ -93,6 +106,10 @@ public class IlanDetayFragment extends Fragment {
                         ilanDetayPozisyon.setText(response.body().get(0).getPozisyonseviyesi().toString());
                         ilanDetayIsTanimi.setText(response.body().get(0).getTanim().toString());
                         ilanDetayTecrube.setText(response.body().get(0).getTecrube().toString());
+                    }else{
+                        ChangeFragments changeFragment=new ChangeFragments(getContext());
+                        changeFragment.change(new IlanlarFragment());
+                        Toast.makeText(getActivity(), "There are no details of the announcement.", Toast.LENGTH_SHORT).show();
                     }
                 }
 
@@ -100,6 +117,27 @@ public class IlanDetayFragment extends Fragment {
 
             @Override
             public void onFailure(Call<List<IlanDetayModel>> call, Throwable t) {
+
+            }
+        });
+
+        // ilan detay nitelik request
+        Call<List<IlanDetayNitelikModel>> request2=ManagerAll.getInstance().ilanDetayNitelikListele(ilanid);
+        request2.enqueue(new Callback<List<IlanDetayNitelikModel>>() {
+            @Override
+            public void onResponse(Call<List<IlanDetayNitelikModel>> call, Response<List<IlanDetayNitelikModel>> response) {
+                if(response.isSuccessful()){
+                    if(response.body().size()>0){
+                        list=response.body();
+                        adapter=new IlanDetayNitelikAdapter(list,getContext());
+                        ilanDetayNitelikRecyclerView.setAdapter(adapter);
+
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<IlanDetayNitelikModel>> call, Throwable t) {
 
             }
         });
