@@ -23,6 +23,13 @@ public class GetSharedPref {
         editor.commit();
     }
 
+    public void setSessioniki(String ilanid){
+
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+        editor.putString("ilanid",ilanid);
+        editor.commit();
+    }
+
     public SharedPreferences getSession(){
         return sharedPreferences;
     }

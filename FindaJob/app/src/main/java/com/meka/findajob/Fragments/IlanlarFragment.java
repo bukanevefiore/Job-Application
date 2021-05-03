@@ -3,6 +3,9 @@ package com.meka.findajob.Fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.ActionOnlyNavDirections;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,12 +28,13 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class IlanlarFragment extends Fragment {
+public class IlanlarFragment extends Fragment implements View.OnClickListener{
 
     View view;
     private RecyclerView ilanListeleRecyclerView;
     List<IlanModel> ilanModelList;
     String kulid;
+    String ilanid;
     IlanAdapter ilanAdapter;
 
     @Override
@@ -49,14 +53,23 @@ public class IlanlarFragment extends Fragment {
 
         GetSharedPref sharedPref=new GetSharedPref(getActivity());
         kulid=sharedPref.getSession().getString("id",null);
-
-
+        GetSharedPref getSharedPref=new GetSharedPref(getActivity());
+        ilanid=getSharedPref.getSession().getString("ilanid",null);
         ilanListeleRecyclerView=view.findViewById(R.id.ilanListeleRecyclerView);
         RecyclerView.LayoutManager layoutManager=new GridLayoutManager(getContext(),1);
         ilanListeleRecyclerView.setLayoutManager(layoutManager);
         ilanModelList=new ArrayList<>();
+        ilanListeleRecyclerView.setOnClickListener((View.OnClickListener) this);
 
     }
+    @Override
+    public void onClick(View v) {
+
+        NavDirections action=new ActionOnlyNavDirections(R.id.action_menuIlanlar_to_ilanDetayFragment22);
+        action.getArguments().putString("ilanid",ilanid);
+        Navigation.findNavController(v).navigate(action);
+    }
+
 
     public void ilanListeleRequest(String id){
 
@@ -88,4 +101,6 @@ public class IlanlarFragment extends Fragment {
             }
         });
     }
+
+
 }
