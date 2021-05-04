@@ -17,11 +17,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.meka.findajob.Adapters.IlanDetayNitelikAdapter;
+import com.meka.findajob.Models.BasvuruModel;
 import com.meka.findajob.Models.IlanDetayModel;
 import com.meka.findajob.Models.IlanDetayNitelikModel;
 import com.meka.findajob.R;
 import com.meka.findajob.RestApi.ManagerAll;
 import com.meka.findajob.Utils.ChangeFragments;
+import com.meka.findajob.Utils.GetSharedPref;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +37,7 @@ public class IlanDetayFragment extends Fragment {
 
     View view;
     String ilanId;
+    String userid,paylasanid;
     TextView ilanDetayIlanBaslik,ilanDetayIlanAciklama,ilanDetayAdres,ilanDetayIsTanimi,ilanDetayFirmaSektoru,
             ilanDetayCalısmaSekli,ilanDetayDepartman,ilanDetayPozisyon,ilanDetayTecrube,ilanDetayEgitimSeviyesi;
     Button ilanDetayButtonBasvur,ilanDetayButtonFavoriyeAl;
@@ -51,11 +54,17 @@ public class IlanDetayFragment extends Fragment {
 
         tanimlamalar();
         ilanDetayRequest(ilanId);
+        onClick();
+        ilanBasvurRequest(userid,paylasanid,ilanId);
 
         return view;
     }
 
     public void tanimlamalar(){
+        ilanId=getArguments().getString("ilanid");
+        paylasanid=getArguments().getString("kid");
+        GetSharedPref getSharedPref=new GetSharedPref(getActivity());
+        userid=getSharedPref.getSession().getString("id",null);
         imageGeri=view.findViewById(R.id.imageGeri);
         ilanId=getArguments().getString("ilanid").toString();
         ilanDetayButtonFavoriyeAl=view.findViewById(R.id.ilanDetayButtonFavoriyeAl);
@@ -73,6 +82,13 @@ public class IlanDetayFragment extends Fragment {
         ilanDetayPozisyon=view.findViewById(R.id.ilanDetayPozisyon);
         ilanDetayTecrube=view.findViewById(R.id.ilanDetayTecrube);
         ilanDetayEgitimSeviyesi=view.findViewById(R.id.ilanDetayEgitimSeviyesi);
+        list=new ArrayList<>();
+
+    }
+
+    // clicks
+    public void onClick(){
+        // geri
         imageGeri.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,9 +97,13 @@ public class IlanDetayFragment extends Fragment {
             }
         });
 
-        list=new ArrayList<>();
+        // ilan basvuru
+        ilanDetayButtonBasvur.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-
+            }
+        });
 
     }
 
@@ -138,6 +158,28 @@ public class IlanDetayFragment extends Fragment {
 
             @Override
             public void onFailure(Call<List<IlanDetayNitelikModel>> call, Throwable t) {
+
+            }
+        });
+    }
+
+    public void ilanBasvurRequest(String userid,String paylasanid,String ilanid){
+
+        Call<BasvuruModel> request=ManagerAll.getInstance().basvuruYap(userid, paylasanid, ilanid);
+        request.enqueue(new Callback<BasvuruModel>() {
+            @Override
+            public void onResponse(Call<BasvuruModel> call, Response<BasvuruModel> response) {
+                if(response.isSuccessful()){
+                    if(response.body().isTf()){
+                        Toast.makeText(getActivity(), response.body().getText().toString(), Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(getActivity(), response.body().getText().toString(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BasvuruModel> call, Throwable t) {
 
             }
         });

@@ -27,10 +27,11 @@ public class ChangeFragments {
 
         }
 
-        public void changeWithParemeters(Fragment fragment,String ilanid){
+        public void changeWithParemeters(Fragment fragment,String ilanid,String kid){
 
             Bundle bundle=new Bundle();
             bundle.putString("ilanid",ilanid);
+            bundle.putString("kid",kid);
             fragment.setArguments(bundle);
 
             ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()

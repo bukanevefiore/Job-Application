@@ -51,7 +51,8 @@ public class IlanAdapter extends RecyclerView.Adapter<IlanViewHolder> {
             public void onClick(View v) {
 
                 ChangeFragments changeFragment=new ChangeFragments(context);
-                changeFragment.changeWithParemeters(new IlanDetayFragment(),ilanModelList.get(position).getId());
+                changeFragment.changeWithParemeters(new IlanDetayFragment(),ilanModelList.get(position).getId(),
+                        ilanModelList.get(position).getKid().toString());
 
             }
         });
