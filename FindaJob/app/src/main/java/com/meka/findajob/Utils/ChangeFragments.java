@@ -41,4 +41,17 @@ public class ChangeFragments {
 
         }
 
+    public void changeWith1Paremeters(Fragment fragment,String ilanid){
+
+        Bundle bundle=new Bundle();
+        bundle.putString("ilanid",ilanid);
+        fragment.setArguments(bundle);
+
+        ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()
+                .replace(R.id.navHostFragment,fragment,"fragment")
+                .setTransitionStyle(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                .commit();
+
+    }
+
     }

@@ -8,6 +8,7 @@ import com.meka.findajob.Models.DeneyimListeleModel;
 import com.meka.findajob.Models.IlanDetayModel;
 import com.meka.findajob.Models.IlanDetayNitelikModel;
 import com.meka.findajob.Models.IlanModel;
+import com.meka.findajob.Models.IlanPaylasModel;
 import com.meka.findajob.Models.KullaniciBilgiModel;
 import com.meka.findajob.Models.SilModel;
 import com.meka.findajob.Models.DogrulaModel;
@@ -133,6 +134,12 @@ public class ManagerAll extends BaseManager {
     public Call<BasvuruModel> basvuruYap(String userid, String paylasanid, String ilanid)
     {
         Call<BasvuruModel> x=getRestApi().basvuruYap(userid, paylasanid, ilanid);
+        return x;
+    }
+
+    public Call<IlanPaylasModel> ilanPaylas(String kid, String baslik, String aciklama,String adres)
+    {
+        Call<IlanPaylasModel> x=getRestApi().ilanPaylas(kid, baslik, aciklama, adres);
         return x;
     }
 

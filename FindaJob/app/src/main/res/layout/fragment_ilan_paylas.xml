@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="20dp"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="5dp"
+
+    tools:context=".Fragments.IlanPaylasFragment">
+
+    <LinearLayout
+
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginBottom="7dp"
+        android:layout_marginTop="7dp"
+        android:layout_gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:orientation="vertical">
+
+
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/ic_baseline_business_24"
+            android:layout_gravity="center"
+            android:layout_marginTop="70dp"
+            >
+
+        </ImageView>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="300dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:textColorHint="#ECBAF4"
+            android:layout_height="wrap_content"
+            android:hint="Enter a title"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ilanPaylasBaslikEditText"
+                android:layout_width="match_parent"
+                android:textColor="#ECBAF4"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/transparent" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="300dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:textColorHint="#ECBAF4"
+            android:layout_height="wrap_content"
+            android:hint="Enter a description"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ilanPaylasAciklamaEditText"
+                android:layout_width="match_parent"
+                android:textColor="#ECBAF4"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/transparent" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="300dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:textColorHint="#ECBAF4"
+            android:layout_height="wrap_content"
+            android:hint="Enter ad address"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ilanPaylasAdresEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#ECBAF4"
+                android:backgroundTint="@android:color/transparent" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/ilanPaylasButon"
+            android:layout_width="340dp"
+            android:layout_height="55dp"
+            android:textColor="#FFFCFC"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/ounded_shape"
+            style="AppTheme.RoundedCornerMaterialButton"
+            android:text="SHARE"></androidx.appcompat.widget.AppCompatButton>
+
+
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

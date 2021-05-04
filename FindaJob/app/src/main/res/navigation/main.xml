@@ -30,4 +30,14 @@
         android:name="com.meka.findajob.Fragments.IlanDetayFragment"
         android:label="fragment_ilan_detay"
         tools:layout="@layout/fragment_ilan_detay" />
+    <fragment
+        android:id="@+id/menuilanPaylas"
+        android:name="com.meka.findajob.Fragments.IlanPaylasFragment"
+        android:label="Shared Ad"
+        tools:layout="@layout/fragment_ilan_paylas" />
+    <fragment
+        android:id="@+id/ilanPaylasDetayFragment"
+        android:name="com.meka.findajob.Fragments.IlanPaylasDetayFragment"
+        android:label="fragment_ilan_paylas_detay"
+        tools:layout="@layout/fragment_ilan_paylas_detay" />
 </navigation>

@@ -15,7 +15,7 @@
         android:icon="@drawable/ic_baseline_notifications_active_24"
         android:title="@string/myapplications"></item>
     <item
-        android:id="@+id/menuShareAd"
+        android:id="@+id/menuilanPaylas"
         android:icon="@drawable/ic_baseline_share_24"
         android:title="@string/sharead"></item>
     <item
