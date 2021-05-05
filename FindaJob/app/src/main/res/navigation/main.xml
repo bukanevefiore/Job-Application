@@ -34,7 +34,14 @@
         android:id="@+id/menuilanPaylas"
         android:name="com.meka.findajob.Fragments.IlanPaylasFragment"
         android:label="Shared Ad"
-        tools:layout="@layout/fragment_ilan_paylas" />
+        tools:layout="@layout/fragment_ilan_paylas" >
+        <action
+            android:id="@+id/action_menuilanPaylas_to_ilanPaylasDetayFragment"
+            app:destination="@id/ilanPaylasDetayFragment" />
+        <argument
+            android:name="ilanid"
+            android:defaultValue="0" />
+    </fragment>
     <fragment
         android:id="@+id/ilanPaylasDetayFragment"
         android:name="com.meka.findajob.Fragments.IlanPaylasDetayFragment"
