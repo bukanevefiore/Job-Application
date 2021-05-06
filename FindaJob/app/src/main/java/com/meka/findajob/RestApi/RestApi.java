@@ -112,4 +112,13 @@ public interface RestApi {
     Call<IlanDetayPaylasModel> ilanDetayPozisyonPaylas(@Field("ilanid") String ilanid,@Field("text") String text, @Field("firmasektoru") String firmasektoru, @Field("calismasekli") String calismasekli, @Field("departman") String departman,
                                                        @Field("pozisyonseviyesi") String pozisyonseviyesi);
 
+    @FormUrlEncoded
+    @POST("/isbul/ilandetaypaylas.php")
+    Call<IlanDetayPaylasModel> ilanDetayIsTanimiPaylas(@Field("ilanid") String ilanid,@Field("text") String text,@Field("tanim") String tanim);
+
+    @FormUrlEncoded
+    @POST("/isbul/ilandetaypaylas.php")
+    Call<IlanDetayPaylasModel> ilanDetayNitelikPaylas(@Field("ilanid") String ilanid,@Field("text") String text,@Field("nitelik") String nitelik);
+
+
 }

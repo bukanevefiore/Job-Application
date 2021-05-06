@@ -157,5 +157,19 @@ public class ManagerAll extends BaseManager {
         return x;
     }
 
+    public Call<IlanDetayPaylasModel> ilanDetayIsTanimiPaylas( String ilanid,String text, String tanim)
+    {
+        Call<IlanDetayPaylasModel> x=getRestApi().ilanDetayIsTanimiPaylas(ilanid, text,tanim);
+        return x;
+    }
+
+    public Call<IlanDetayPaylasModel> ilanDetayNitelikPaylas( String ilanid,String text, String nitelik)
+    {
+        Call<IlanDetayPaylasModel> x=getRestApi().ilanDetayNitelikPaylas(ilanid, text, nitelik);
+        return x;
+    }
+
+
+
 
 }

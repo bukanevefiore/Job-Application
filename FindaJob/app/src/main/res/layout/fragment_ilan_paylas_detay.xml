@@ -385,7 +385,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:hint="Enter the position level .."
                         android:paddingLeft="15dp"
-                        android:id="@+id/ilanDetayPaylasPozisyonEditText"
+                        android:id="@+id/ilanDetayPaylasPozisyonSeviyeEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="12sp"
@@ -468,7 +468,7 @@
                     </com.google.android.material.textfield.TextInputEditText>
 
                     <TextView
-                        android:text="* Mode of Operation"
+                        android:text="* Education Level"
                         android:paddingLeft="15sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -508,7 +508,7 @@
         android:layout_height="?actionBarSize">
 
         <Button
-            android:id="@+id/ilanDetayButtonBasvur"
+            android:id="@+id/ilanDetayYayinlaBasvur"
             android:layout_width="0dp"
             android:textSize="17sp"
             android:layout_weight="4"
@@ -516,19 +516,9 @@
             android:layout_marginRight="10dp"
             android:layout_height="match_parent"
             android:background="@drawable/background_transparent"
-            android:text="Apply" />
+            android:text="PUBLISH" />
 
 
-        <Button
-            android:id="@+id/ilanDetayButtonFavoriyeAl"
-            android:layout_width="0dp"
-            android:textSize="15sp"
-            android:layout_weight="4"
-            android:layout_marginLeft="-5dp"
-            android:layout_marginRight="10dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/background_transparent"
-            android:text="Add to favorıtes" />
 
 
 
