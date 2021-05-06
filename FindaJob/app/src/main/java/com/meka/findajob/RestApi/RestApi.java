@@ -120,5 +120,8 @@ public interface RestApi {
     @POST("/isbul/ilandetaypaylas.php")
     Call<IlanDetayPaylasModel> ilanDetayNitelikPaylas(@Field("ilanid") String ilanid,@Field("text") String text,@Field("nitelik") String nitelik);
 
+    @FormUrlEncoded
+    @POST("/isbul/ilanlarimlistele.php")
+    Call<List<IlanModel>> ilanlarimListele(@Field("kid") String kid);
 
 }

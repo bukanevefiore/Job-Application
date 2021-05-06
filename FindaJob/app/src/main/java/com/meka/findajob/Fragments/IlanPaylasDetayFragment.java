@@ -3,6 +3,8 @@ package com.meka.findajob.Fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -238,6 +240,10 @@ public class IlanPaylasDetayFragment extends Fragment {
                 if (response.isSuccessful()) {
                     if (response.body().size() > 0) {
 
+                        final Bundle bundle = new Bundle();
+                        bundle.putString("ilanid", ilanid);
+                        final NavController navController = Navigation.findNavController(getActivity(), R.id.navHostFragment);
+                        navController.navigate(R.id.action_ilanPaylasDetayFragment_to_ilanlarimFragment,bundle);
 
                     } else {
 

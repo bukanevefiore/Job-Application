@@ -169,7 +169,11 @@ public class ManagerAll extends BaseManager {
         return x;
     }
 
-
+    public Call<List<IlanModel>> ilanlarimListele(String id)
+    {
+        Call<List<IlanModel>> x=getRestApi().ilanlarimListele(id);
+        return x;
+    }
 
 
 }

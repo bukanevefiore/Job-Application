@@ -11,7 +11,7 @@
         android:title="@string/ilanlar"></item>
 
     <item
-        android:id="@+id/menuMyApplications"
+        android:id="@+id/menuilanlarim"
         android:icon="@drawable/ic_baseline_notifications_active_24"
         android:title="@string/myapplications"></item>
     <item

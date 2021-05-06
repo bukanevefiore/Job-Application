@@ -8,7 +8,7 @@
     <fragment
         android:name="com.meka.findajob.Fragments.ProfileFragment"
         android:id="@+id/menuProfile"
-        android:label="Profil"
+        android:label="Profile"
         tools:layout="@layout/fragment_profile"/>
 
     <fragment
@@ -28,7 +28,7 @@
     <fragment
         android:id="@+id/ilanDetayFragment2"
         android:name="com.meka.findajob.Fragments.IlanDetayFragment"
-        android:label="fragment_ilan_detay"
+        android:label="Posting Details"
         tools:layout="@layout/fragment_ilan_detay" />
     <fragment
         android:id="@+id/menuilanPaylas"
@@ -45,6 +45,15 @@
     <fragment
         android:id="@+id/ilanPaylasDetayFragment"
         android:name="com.meka.findajob.Fragments.IlanPaylasDetayFragment"
-        android:label="fragment_ilan_paylas_detay"
-        tools:layout="@layout/fragment_ilan_paylas_detay" />
+        android:label="Posting Details"
+        tools:layout="@layout/fragment_ilan_paylas_detay" >
+        <action
+            android:id="@+id/action_ilanPaylasDetayFragment_to_ilanlarimFragment"
+            app:destination="@id/menuilanlarim" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuilanlarim"
+        android:name="com.meka.findajob.Fragments.IlanlarimFragment"
+        android:label="My Job Postings"
+        tools:layout="@layout/fragment_ilanlarim" />
 </navigation>
