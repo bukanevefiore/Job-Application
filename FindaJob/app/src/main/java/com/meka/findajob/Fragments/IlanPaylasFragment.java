@@ -29,6 +29,7 @@ public class IlanPaylasFragment extends Fragment {
     AppCompatButton ilanPaylasButon;
     String userid;
     GetSharedPref getSharedPref;
+    String baslik="",aciklama="",adres="";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -58,7 +59,7 @@ public class IlanPaylasFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                String baslik="",aciklama="",adres="";
+
                 baslik=ilanPaylasBaslikEditText.getText().toString();
                 aciklama=ilanPaylasAciklamaEditText.getText().toString();
                 adres=ilanPaylasAdresEditText.getText().toString();
@@ -90,6 +91,9 @@ public class IlanPaylasFragment extends Fragment {
 
                         final Bundle bundle = new Bundle();
                         bundle.putString("ilanid", response.body().getIlanid().toString());
+                        bundle.putString("baslik",baslik);
+                        bundle.putString("aciklama",aciklama);
+                        bundle.putString("adres",adres);
                         final NavController navController = Navigation.findNavController(getActivity(), R.id.navHostFragment);
                         navController.navigate(R.id.action_menuilanPaylas_to_ilanPaylasDetayFragment,bundle);
                         //ChangeFragments changeFragment=new ChangeFragments(getContext());

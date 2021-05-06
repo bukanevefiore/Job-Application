@@ -7,6 +7,7 @@ import com.meka.findajob.Models.DeneyimEkleModel;
 import com.meka.findajob.Models.DeneyimListeleModel;
 import com.meka.findajob.Models.IlanDetayModel;
 import com.meka.findajob.Models.IlanDetayNitelikModel;
+import com.meka.findajob.Models.IlanDetayPaylasModel;
 import com.meka.findajob.Models.IlanModel;
 import com.meka.findajob.Models.IlanPaylasModel;
 import com.meka.findajob.Models.KullaniciBilgiModel;
@@ -140,6 +141,19 @@ public class ManagerAll extends BaseManager {
     public Call<IlanPaylasModel> ilanPaylas(String kid, String baslik, String aciklama,String adres)
     {
         Call<IlanPaylasModel> x=getRestApi().ilanPaylas(kid, baslik, aciklama, adres);
+        return x;
+    }
+
+    public Call<IlanDetayPaylasModel> ilanDetayKriterPaylas(String text, String ilanid, String tecrube, String egitimbilgisi)
+    {
+        Call<IlanDetayPaylasModel> x=getRestApi().ilanDetayKriterPaylas(text, ilanid, tecrube, egitimbilgisi);
+        return x;
+    }
+
+    public Call<IlanDetayPaylasModel> ilanDetayPozisyonPaylas( String ilanid,String text, String firmasektoru, String calismasekli,
+                                                               String departman,String pozisyonseviyesi)
+    {
+        Call<IlanDetayPaylasModel> x=getRestApi().ilanDetayPozisyonPaylas(ilanid, text, firmasektoru, calismasekli, departman, pozisyonseviyesi);
         return x;
     }
 

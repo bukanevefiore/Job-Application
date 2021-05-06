@@ -7,6 +7,7 @@ import com.meka.findajob.Models.DeneyimEkleModel;
 import com.meka.findajob.Models.DeneyimListeleModel;
 import com.meka.findajob.Models.IlanDetayModel;
 import com.meka.findajob.Models.IlanDetayNitelikModel;
+import com.meka.findajob.Models.IlanDetayPaylasModel;
 import com.meka.findajob.Models.IlanModel;
 import com.meka.findajob.Models.IlanPaylasModel;
 import com.meka.findajob.Models.KullaniciBilgiModel;
@@ -101,5 +102,14 @@ public interface RestApi {
     @FormUrlEncoded
     @POST("/isbul/ilanpaylas.php")
     Call<IlanPaylasModel> ilanPaylas(@Field("kid") String kid, @Field("baslik") String baslik, @Field("aciklama") String aciklama, @Field("adres") String adres);
+
+    @FormUrlEncoded
+    @POST("/isbul/ilandetaypaylas.php")
+    Call<IlanDetayPaylasModel> ilanDetayKriterPaylas(@Field("text") String text, @Field("ilanid") String ilanid, @Field("tecrube") String tecrube, @Field("egitimbilgisi") String egitimbilgisi);
+
+    @FormUrlEncoded
+    @POST("/isbul/ilandetaypaylas.php")
+    Call<IlanDetayPaylasModel> ilanDetayPozisyonPaylas(@Field("ilanid") String ilanid,@Field("text") String text, @Field("firmasektoru") String firmasektoru, @Field("calismasekli") String calismasekli, @Field("departman") String departman,
+                                                       @Field("pozisyonseviyesi") String pozisyonseviyesi);
 
 }
