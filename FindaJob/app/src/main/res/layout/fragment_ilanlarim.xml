@@ -6,11 +6,20 @@
     android:background="@drawable/ounded_shape5"
     tools:context=".Fragments.IlanlarimFragment">
 
+    <LinearLayout
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="-50dp"
+        android:layout_marginRight="-41dp"
+        android:layout_marginLeft="-41dp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@drawable/ounded_shape2"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:background="@drawable/background_transparent"
+        android:backgroundTint="@color/white"
         android:id="@+id/ilanlarimRecyclerView"/>
 
 </FrameLayout>

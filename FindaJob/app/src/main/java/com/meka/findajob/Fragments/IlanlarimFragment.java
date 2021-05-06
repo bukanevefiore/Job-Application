@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,9 @@ public class IlanlarimFragment extends Fragment {
         // Inflate the layout for this fragment
         view= inflater.inflate(R.layout.fragment_ilanlarim, container, false);
 
+        tanimlamalar();
+        ilanlarimListeleRequest(kulid);
+
         return view;
     }
 
@@ -58,9 +62,9 @@ public class IlanlarimFragment extends Fragment {
             public void onResponse(Call<List<IlanModel>> call, Response<List<IlanModel>> response) {
                 if(response.isSuccessful()){
                     if(response.body().size()>0){
-
+                           Log.i("ilanlarım",response.body().toString());
                         list=response.body();
-                        adapter=new IlanlarimAdapter(list,getContext());
+                        adapter=new IlanlarimAdapter(list,getContext(),getActivity());
                         ilanlarimRecyclerView.setAdapter(adapter);
                     }
                 }

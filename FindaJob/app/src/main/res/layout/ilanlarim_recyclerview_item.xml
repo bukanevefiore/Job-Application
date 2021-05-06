@@ -5,6 +5,7 @@
     android:layout_marginLeft="8dp"
     android:id="@+id/ilanlarimAnaLayout"
     android:clickable="true"
+    android:layout_marginBottom="10dp"
     android:layout_marginTop="0.5dp"
     android:layout_marginRight="8dp"
     android:layout_height="wrap_content">
