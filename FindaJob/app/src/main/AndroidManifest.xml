@@ -18,6 +18,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FindaJob">
+        <activity
+            android:name=".Activity.IlanlarimActivity"
+            android:label="@string/title_activity_ilanlarim"></activity>
         <activity android:name=".Activity.SignInActivity" />
         <activity android:name=".Activity.DogrulamaActivity" />
         <activity android:name=".Activity.SignUpActivity" />

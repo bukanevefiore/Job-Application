@@ -3,6 +3,7 @@ package com.meka.findajob.Adapters;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.meka.findajob.Activity.IlanlarimActivity;
 import com.meka.findajob.Models.IlanModel;
 import com.meka.findajob.R;
 import com.meka.findajob.ViewHolder.IlanlarimViewHolder;
@@ -48,8 +50,10 @@ public class IlanlarimAdapter extends RecyclerView.Adapter<IlanlarimViewHolder> 
             @Override
             public void onClick(View v) {
 
-               // Intent intent=new Intent(activity, IlanlarimActivity.class);
-               // activity.startActivity(intent);
+                Bundle bundle=new Bundle();
+                bundle.putString("ilanid",ilanModelList.get(position).getId().toString());
+                Intent intent=new Intent(activity, IlanlarimActivity.class);
+                activity.startActivity(intent);
 
             }
         });

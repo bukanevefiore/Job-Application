@@ -11,8 +11,9 @@
     <string name="sharead">Share Ad</string>
     <string name="myfavoriteads">My Favorite Postings</string>
     <string name="myapplications">My Job Postings</string>
-
-
+    <string name="title_activity_ilanlarim">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_notifications">Notifications</string>
 
 
 </resources>
