@@ -10,14 +10,18 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.meka.findajob.Activity.ui.home.HomeFragment;
 import com.meka.findajob.Activity.ui.notifications.NotificationsFragment;
+import com.meka.findajob.Fragments.IlanlarimFragment;
 import com.meka.findajob.R;
 import com.meka.findajob.Utils.ChangeFragments;
 import com.meka.findajob.Utils.GetSharedPref;
@@ -26,6 +30,8 @@ public class IlanlarimNavigationActivity extends AppCompatActivity {
 
     String ilanid;
     ChangeFragments changeFragments;
+    ImageView imageGeriIlanlarim;
+    Context context;
 
 
     @Override
@@ -65,6 +71,16 @@ public class IlanlarimNavigationActivity extends AppCompatActivity {
 
         GetSharedPref getSharedPref=new GetSharedPref(IlanlarimNavigationActivity.this);
         getSharedPref.setSession2(ilanid);
+
+        imageGeriIlanlarim=findViewById(R.id.imageGeriIlanlarim);
+        imageGeriIlanlarim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //ChangeFragments changeFragments=new ChangeFragments(context);
+                //changeFragments.change(new IlanlarimFragment());
+            }
+        });
 
     }
 

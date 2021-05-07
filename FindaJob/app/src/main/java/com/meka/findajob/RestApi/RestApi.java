@@ -126,7 +126,7 @@ public interface RestApi {
     Call<List<IlanModel>> ilanlarimListele(@Field("kid") String kid);
 
     @FormUrlEncoded
-    @POST("/isbul/basvurulistele.php")
+    @POST("/isbul/basvurularlistele.php")
     Call<List<BasvuruListeleModel>> basvuruListele(@Field("ilanid") String ilanid);
 
 }

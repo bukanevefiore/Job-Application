@@ -18,8 +18,16 @@ import androidx.lifecycle.ViewModelProvider;
 import com.meka.findajob.Activity.IlanlarimNavigationActivity;
 import com.meka.findajob.Activity.MainActivity;
 import com.meka.findajob.Activity.SignInActivity;
+import com.meka.findajob.Models.BasvuruListeleModel;
 import com.meka.findajob.R;
+import com.meka.findajob.RestApi.ManagerAll;
 import com.meka.findajob.Utils.GetSharedPref;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class HomeFragment extends Fragment {
@@ -34,6 +42,7 @@ public class HomeFragment extends Fragment {
                 new ViewModelProvider(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         final TextView textView = root.findViewById(R.id.text_home);
+
         tanimlamalar();
 
 
@@ -55,4 +64,6 @@ public class HomeFragment extends Fragment {
         Log.i("gelenhomeilanid",sharedPreferences.getString("ilanid",null));
 
     }
+
+
 }

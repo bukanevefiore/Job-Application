@@ -73,6 +73,8 @@ public class SignInActivity extends AppCompatActivity {
                 if(mail !="" && sifre != "") {
                     Log.i("konrol1",mail+ sifre);
                     girisYap(mail, sifre);
+
+                }else{
                     Toast.makeText(getApplicationContext(), "Lütfen tüm alanları doldurun", Toast.LENGTH_SHORT).show();
                 }
 

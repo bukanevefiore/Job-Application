@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/basvurularAnaLayout"
+    android:clickable="true"
+    android:layout_marginBottom="10dp"
+    android:layout_marginTop="0.5dp"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        app:cardBackgroundColor="#F7EBFA"
+        android:layout_width="match_parent"
+        app:cardElevation="5dp"
+        app:cardCornerRadius="10dp"
+        android:elevation="20dp"
+        app:cardMaxElevation="20dp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/basvuruKullaniciAdiText"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="#581A63"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Baslık"/>
+
+            <TextView
+                android:id="@+id/basvuruKullaniciMailText"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_margin="5dp"
+                android:textColor="#805B87"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Baslık"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:id="@+id/basvuruKabulButon"
+                    android:text="Admit it"
+                    android:layout_margin="5dp"
+                    android:textColor="#4E1A57"
+                    android:layout_height="40dp"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:id="@+id/basvuruRedButon"
+                    android:text="Refuse"
+                    android:textColor="#4E1A57"
+                    android:layout_height="40dp"/>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>
