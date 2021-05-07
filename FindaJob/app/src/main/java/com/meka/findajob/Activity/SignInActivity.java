@@ -72,7 +72,9 @@ public class SignInActivity extends AppCompatActivity {
                 sifre=parolaSignInText.getText().toString();
                 mailSignInText.setText("");
                 parolaSignInText.setText("");
-                if(mail =="" && sifre == "") {
+
+                if(mail !="" && sifre != "") {
+                    Log.i("konrol1",mail+ sifre);
                     girisYap(mail, sifre);
                     Toast.makeText(getApplicationContext(), "Lütfen tüm alanları doldurun", Toast.LENGTH_SHORT).show();
                 }
@@ -165,11 +167,13 @@ public class SignInActivity extends AppCompatActivity {
 
     public void girisYap(String mail,String sifre){
 
+
         Call<GirisYapModel> request= ManagerAll.getInstance().girisYap(mail, sifre);
         request.enqueue(new Callback<GirisYapModel>() {
             @Override
             public void onResponse(Call<GirisYapModel> call, Response<GirisYapModel> response) {
 
+                Log.i("kontroll", "onResponse: dogruuu");
                 if(response.body().isTf()){
                     Log.i("kontroll", "onResponse: dogruuu");
                     Toast.makeText(getApplicationContext(), response.body().getText().toString(), Toast.LENGTH_LONG).show();

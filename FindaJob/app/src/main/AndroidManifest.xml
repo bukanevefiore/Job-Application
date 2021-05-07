@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".ApplicationClass"
@@ -18,9 +19,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FindaJob">
-        <activity
-            android:name=".Activity.IlanlarimActivity"
-            android:label="@string/title_activity_ilanlarim"></activity>
         <activity android:name=".Activity.SignInActivity" />
         <activity android:name=".Activity.DogrulamaActivity" />
         <activity android:name=".Activity.SignUpActivity" />

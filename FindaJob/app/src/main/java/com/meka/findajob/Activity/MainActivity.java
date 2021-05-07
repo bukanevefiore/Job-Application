@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         if(sharedPreferences.getString("id",null) == null && sharedPreferences.getString("mail",null) == null
                 && sharedPreferences.getString("kadi",null) == null)
         {
+
             Intent intent=new Intent(MainActivity.this,SignInActivity.class);
             startActivity(intent);
             finish();
