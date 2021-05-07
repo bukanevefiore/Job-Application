@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.meka.findajob.Activity.IlanlarimNavigationActivity;
 import com.meka.findajob.Models.IlanModel;
 import com.meka.findajob.R;
 import com.meka.findajob.ViewHolder.IlanlarimViewHolder;
@@ -51,8 +52,8 @@ public class IlanlarimAdapter extends RecyclerView.Adapter<IlanlarimViewHolder> 
 
                 Bundle bundle=new Bundle();
                 bundle.putString("ilanid",ilanModelList.get(position).getId().toString());
-                //Intent intent=new Intent(activity, IlanlarimActivity.class);
-                //activity.startActivity(intent);
+                Intent intent=new Intent(activity, IlanlarimNavigationActivity.class);
+                activity.startActivity(intent);
 
             }
         });
