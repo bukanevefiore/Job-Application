@@ -50,9 +50,8 @@ public class IlanlarimAdapter extends RecyclerView.Adapter<IlanlarimViewHolder> 
             @Override
             public void onClick(View v) {
 
-                Bundle bundle=new Bundle();
-                bundle.putString("ilanid",ilanModelList.get(position).getId().toString());
                 Intent intent=new Intent(activity, IlanlarimNavigationActivity.class);
+                intent.putExtra("ilanid",ilanModelList.get(position).getId().toString());
                 activity.startActivity(intent);
 
             }

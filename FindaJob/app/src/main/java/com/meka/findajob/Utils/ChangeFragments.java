@@ -27,6 +27,19 @@ public class ChangeFragments {
 
         }
 
+    public void change2(Fragment fragment,String ilanid){
+
+        Bundle bundle=new Bundle();
+        bundle.putString("ilanid",ilanid);
+        fragment.setArguments(bundle);
+
+        ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()
+                .replace(R.id.nav_host_fragment,fragment,"fragment")
+                .setTransitionStyle(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                .commit();
+
+    }
+
         public void changeWithParemeters(Fragment fragment,String ilanid,String kid){
 
             Bundle bundle=new Bundle();

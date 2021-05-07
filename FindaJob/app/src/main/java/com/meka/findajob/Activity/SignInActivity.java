@@ -50,9 +50,6 @@ public class SignInActivity extends AppCompatActivity {
 
     public void tanimlamalar(){
 
-
-
-
         mailSignInText=findViewById(R.id.mailSignInText);
         parolaSignInText=findViewById(R.id.parolaSignInText);
         girisYapButon=findViewById(R.id.girisYapButon);
