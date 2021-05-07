@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="profile">Profile</string>
-    <string name="notifications">Notifications</string>
     <string name="settings">Settings</string>
     <string name="aboutUs">AboutUs</string>
     <string name="ilanlar">Job Postings</string>
