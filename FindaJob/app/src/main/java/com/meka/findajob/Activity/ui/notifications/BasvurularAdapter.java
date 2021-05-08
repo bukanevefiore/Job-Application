@@ -2,6 +2,7 @@ package com.meka.findajob.Activity.ui.notifications;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -82,15 +83,8 @@ public class BasvurularAdapter extends RecyclerView.Adapter<BasvurularAdapter.Vi
         holder.basvuruKabulButon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+              Log.i("butonabasıldı","basıldı");
                 basvuruOnaylaRequest(list.get(position).getId().toString(),position);
-            }
-        });
-        // basvuru red
-        holder.basvuruRedButon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
             }
         });
         // basvuru reddet
@@ -129,12 +123,13 @@ public class BasvurularAdapter extends RecyclerView.Adapter<BasvurularAdapter.Vi
         });
     }
     public void basvuruRedRequest(String basvuruid,int position){
-
+        Log.i("basvuruonay","burdaa");
         Call<BasvuruOnayRedModel> request=ManagerAll.getInstance().basvuruRed(basvuruid);
         request.enqueue(new Callback<BasvuruOnayRedModel>() {
             @Override
             public void onResponse(Call<BasvuruOnayRedModel> call, Response<BasvuruOnayRedModel> response) {
                 if(response.body().isTf()){
+
                     Toast.makeText(context, response.body().getText().toString(), Toast.LENGTH_SHORT).show();
                     deleteToList(position);
                 }

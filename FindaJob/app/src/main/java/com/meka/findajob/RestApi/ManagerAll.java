@@ -2,6 +2,7 @@ package com.meka.findajob.RestApi;
 
 
 
+import com.meka.findajob.Models.BasvurdugumIlanlarListeleModel;
 import com.meka.findajob.Models.BasvuruListeleModel;
 import com.meka.findajob.Models.BasvuruModel;
 import com.meka.findajob.Models.BasvuruOnayRedModel;
@@ -192,6 +193,12 @@ public class ManagerAll extends BaseManager {
     public Call<BasvuruOnayRedModel> basvuruRed(String basvuruid)
     {
         Call<BasvuruOnayRedModel> x=getRestApi().basvuruRed(basvuruid);
+        return x;
+    }
+
+    public Call<List<BasvurdugumIlanlarListeleModel>> basvurdugumIlanlarListele(String kulid)
+    {
+        Call<List<BasvurdugumIlanlarListeleModel>> x=getRestApi().basvurdugumIlanlarListele(kulid);
         return x;
     }
 

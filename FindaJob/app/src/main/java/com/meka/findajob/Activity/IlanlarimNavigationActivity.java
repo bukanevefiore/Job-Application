@@ -73,6 +73,7 @@ public class IlanlarimNavigationActivity extends AppCompatActivity {
         getSharedPref.setSession2(ilanid);
 
         imageGeriIlanlarim=findViewById(R.id.imageGeriIlanlarim);
+        /*
         imageGeriIlanlarim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,6 +82,8 @@ public class IlanlarimNavigationActivity extends AppCompatActivity {
                 //changeFragments.change(new IlanlarimFragment());
             }
         });
+
+         */
 
     }
 

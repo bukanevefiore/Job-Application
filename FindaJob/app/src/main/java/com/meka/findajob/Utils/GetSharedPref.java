@@ -14,6 +14,7 @@ public class GetSharedPref {
         sharedPreferences =activity.getApplicationContext().getSharedPreferences("session",0);
     }
 
+    // uygulamaya giriş yapan kullanıcı bilgileri
     public void setSession(String id,String mail,String kadi){
 
         SharedPreferences.Editor editor=sharedPreferences.edit();

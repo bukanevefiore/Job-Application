@@ -2,6 +2,7 @@ package com.meka.findajob.RestApi;
 
 
 
+import com.meka.findajob.Models.BasvurdugumIlanlarListeleModel;
 import com.meka.findajob.Models.BasvuruListeleModel;
 import com.meka.findajob.Models.BasvuruModel;
 import com.meka.findajob.Models.BasvuruOnayRedModel;
@@ -138,5 +139,9 @@ public interface RestApi {
     @FormUrlEncoded
     @POST("/isbul/basvurured.php")
     Call<BasvuruOnayRedModel> basvuruRed(@Field("basvuruid") String basvuruid);
+
+    @FormUrlEncoded
+    @POST("/isbul/basvurdugumisilanlarilistele.php")
+    Call<List<BasvurdugumIlanlarListeleModel>> basvurdugumIlanlarListele(@Field("kulid") String kulid);
 
 }

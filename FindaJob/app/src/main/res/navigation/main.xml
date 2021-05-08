@@ -56,4 +56,9 @@
         android:name="com.meka.findajob.Fragments.IlanlarimFragment"
         android:label="My Job Postings"
         tools:layout="@layout/fragment_ilanlarim" />
+    <fragment
+        android:id="@+id/menuBasvurdugumIlanlar"
+        android:name="com.meka.findajob.Fragments.BasvurdugumIlanlarFragment"
+        android:label="Job Applications"
+        tools:layout="@layout/fragment_basvurdugum_ilanlar" />
 </navigation>
