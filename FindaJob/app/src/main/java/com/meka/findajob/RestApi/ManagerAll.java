@@ -4,7 +4,7 @@ package com.meka.findajob.RestApi;
 
 import com.meka.findajob.Models.BasvuruListeleModel;
 import com.meka.findajob.Models.BasvuruModel;
-import com.meka.findajob.Models.BasvuruOnaylaModel;
+import com.meka.findajob.Models.BasvuruOnayRedModel;
 import com.meka.findajob.Models.DeneyimEkleModel;
 import com.meka.findajob.Models.DeneyimListeleModel;
 import com.meka.findajob.Models.IlanDetayModel;
@@ -183,9 +183,15 @@ public class ManagerAll extends BaseManager {
         return x;
     }
 
-    public Call<BasvuruOnaylaModel> basvuruOnayla(String basvuruid)
+    public Call<BasvuruOnayRedModel> basvuruOnayla(String basvuruid)
     {
-        Call<BasvuruOnaylaModel> x=getRestApi().basvuruOnayla(basvuruid);
+        Call<BasvuruOnayRedModel> x=getRestApi().basvuruOnayla(basvuruid);
+        return x;
+    }
+
+    public Call<BasvuruOnayRedModel> basvuruRed(String basvuruid)
+    {
+        Call<BasvuruOnayRedModel> x=getRestApi().basvuruRed(basvuruid);
         return x;
     }
 

@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.meka.findajob.Models.BasvuruListeleModel;
-import com.meka.findajob.Models.BasvuruOnaylaModel;
+import com.meka.findajob.Models.BasvuruOnayRedModel;
 import com.meka.findajob.R;
 import com.meka.findajob.RestApi.ManagerAll;
 
@@ -93,6 +93,13 @@ public class BasvurularAdapter extends RecyclerView.Adapter<BasvurularAdapter.Vi
 
             }
         });
+        // basvuru reddet
+        holder.basvuruRedButon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                basvuruRedRequest(list.get(position).getId().toString(),position);
+            }
+        });
     }
 
     @Override
@@ -103,10 +110,10 @@ public class BasvurularAdapter extends RecyclerView.Adapter<BasvurularAdapter.Vi
 
     public void basvuruOnaylaRequest(String basvuruid,int position){
 
-        Call<BasvuruOnaylaModel> request= ManagerAll.getInstance().basvuruOnayla(basvuruid);
-        request.enqueue(new Callback<BasvuruOnaylaModel>() {
+        Call<BasvuruOnayRedModel> request= ManagerAll.getInstance().basvuruOnayla(basvuruid);
+        request.enqueue(new Callback<BasvuruOnayRedModel>() {
             @Override
-            public void onResponse(Call<BasvuruOnaylaModel> call, Response<BasvuruOnaylaModel> response) {
+            public void onResponse(Call<BasvuruOnayRedModel> call, Response<BasvuruOnayRedModel> response) {
                 if(response.isSuccessful()){
                     if(response.body().isTf()){
                         Toast.makeText(context, response.body().getText().toString(), Toast.LENGTH_SHORT).show();
@@ -116,14 +123,28 @@ public class BasvurularAdapter extends RecyclerView.Adapter<BasvurularAdapter.Vi
             }
 
             @Override
-            public void onFailure(Call<BasvuruOnaylaModel> call, Throwable t) {
+            public void onFailure(Call<BasvuruOnayRedModel> call, Throwable t) {
 
             }
         });
     }
     public void basvuruRedRequest(String basvuruid,int position){
 
-        
+        Call<BasvuruOnayRedModel> request=ManagerAll.getInstance().basvuruRed(basvuruid);
+        request.enqueue(new Callback<BasvuruOnayRedModel>() {
+            @Override
+            public void onResponse(Call<BasvuruOnayRedModel> call, Response<BasvuruOnayRedModel> response) {
+                if(response.body().isTf()){
+                    Toast.makeText(context, response.body().getText().toString(), Toast.LENGTH_SHORT).show();
+                    deleteToList(position);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BasvuruOnayRedModel> call, Throwable t) {
+
+            }
+        });
     }
 
 

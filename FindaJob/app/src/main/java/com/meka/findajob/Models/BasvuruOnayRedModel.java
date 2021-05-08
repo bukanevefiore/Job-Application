@@ -1,6 +1,6 @@
 package com.meka.findajob.Models;
 
-public class BasvuruOnaylaModel{
+public class BasvuruOnayRedModel {
 	private boolean tf;
 	private String text;
 
