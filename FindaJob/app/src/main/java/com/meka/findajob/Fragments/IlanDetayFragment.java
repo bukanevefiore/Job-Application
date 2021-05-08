@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,6 +44,7 @@ public class IlanDetayFragment extends Fragment {
     Button ilanDetayButtonBasvur,ilanDetayButtonFavoriyeAl;
     RecyclerView ilanDetayNitelikRecyclerView;
     ImageView imageGeri;
+    LinearLayout haritayagit;
     List<IlanDetayNitelikModel> list;
     IlanDetayNitelikAdapter adapter;
 
@@ -82,6 +84,7 @@ public class IlanDetayFragment extends Fragment {
         ilanDetayPozisyon=view.findViewById(R.id.ilanDetayPozisyon);
         ilanDetayTecrube=view.findViewById(R.id.ilanDetayTecrube);
         ilanDetayEgitimSeviyesi=view.findViewById(R.id.ilanDetayEgitimSeviyesi);
+        haritayagit=view.findViewById(R.id.haritayagit);
         list=new ArrayList<>();
 
     }
@@ -102,6 +105,16 @@ public class IlanDetayFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+            }
+        });
+
+        // haritaya gitme
+        haritayagit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                ChangeFragments changeFragments=new ChangeFragments(getContext());
+                changeFragments.change(new MapFragment());
             }
         });
 

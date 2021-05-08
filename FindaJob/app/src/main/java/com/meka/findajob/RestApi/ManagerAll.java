@@ -14,6 +14,7 @@ import com.meka.findajob.Models.IlanDetayPaylasModel;
 import com.meka.findajob.Models.IlanModel;
 import com.meka.findajob.Models.IlanPaylasModel;
 import com.meka.findajob.Models.KullaniciBilgiModel;
+import com.meka.findajob.Models.MapModel;
 import com.meka.findajob.Models.SilModel;
 import com.meka.findajob.Models.DogrulaModel;
 import com.meka.findajob.Models.EgitimEkleModel;
@@ -199,6 +200,12 @@ public class ManagerAll extends BaseManager {
     public Call<List<BasvurdugumIlanlarListeleModel>> basvurdugumIlanlarListele(String kulid)
     {
         Call<List<BasvurdugumIlanlarListeleModel>> x=getRestApi().basvurdugumIlanlarListele(kulid);
+        return x;
+    }
+
+    public Call<MapModel> getir()
+    {
+        Call<MapModel> x= getRestApi().getir();
         return x;
     }
 

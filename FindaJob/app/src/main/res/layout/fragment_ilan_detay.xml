@@ -95,11 +95,24 @@
                         android:layout_margin="5dp"
                         android:layout_marginLeft="25dp">
                     </TextView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/haritayagit"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/ic_baseline_location_on_24"/>
                     <TextView
                         android:gravity="center"
                         android:text="İlan Adres"
                         android:id="@+id/ilanDetayAdres"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="13sp"
                         android:textStyle="bold"
@@ -107,6 +120,8 @@
                         android:layout_margin="5dp"
                         android:layout_marginLeft="25dp">
                     </TextView>
+
+                </LinearLayout>
 
 
                 </LinearLayout>

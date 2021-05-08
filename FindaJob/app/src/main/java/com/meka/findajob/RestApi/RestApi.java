@@ -14,6 +14,7 @@ import com.meka.findajob.Models.IlanDetayPaylasModel;
 import com.meka.findajob.Models.IlanModel;
 import com.meka.findajob.Models.IlanPaylasModel;
 import com.meka.findajob.Models.KullaniciBilgiModel;
+import com.meka.findajob.Models.MapModel;
 import com.meka.findajob.Models.SilModel;
 import com.meka.findajob.Models.DogrulaModel;
 import com.meka.findajob.Models.EgitimEkleModel;
@@ -28,6 +29,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface RestApi {
@@ -143,5 +145,8 @@ public interface RestApi {
     @FormUrlEncoded
     @POST("/isbul/basvurdugumisilanlarilistele.php")
     Call<List<BasvurdugumIlanlarListeleModel>> basvurdugumIlanlarListele(@Field("kulid") String kulid);
+
+    @GET("/isbul/googlemap.php")
+    Call<MapModel> getir();
 
 }
