@@ -1,4 +1,4 @@
-package com.meka.findajob.Adapters;
+package com.meka.findajob.Activity.ui.notifications;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,18 +8,21 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.meka.findajob.Fragments.IlanDetayFragment;
 import com.meka.findajob.Models.BasvuruListeleModel;
-import com.meka.findajob.Models.IlanModel;
+import com.meka.findajob.Models.BasvuruOnaylaModel;
 import com.meka.findajob.R;
-import com.meka.findajob.Utils.ChangeFragments;
-import com.meka.findajob.ViewHolder.IlanViewHolder;
+import com.meka.findajob.RestApi.ManagerAll;
 
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class BasvurularAdapter extends RecyclerView.Adapter<BasvurularAdapter.ViewHolder> {
 
@@ -75,6 +78,21 @@ public class BasvurularAdapter extends RecyclerView.Adapter<BasvurularAdapter.Vi
                          */
             }
         });
+        // basvuru onayla
+        holder.basvuruKabulButon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                basvuruOnaylaRequest(list.get(position).getId().toString(),position);
+            }
+        });
+        // basvuru red
+        holder.basvuruRedButon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     @Override
@@ -83,5 +101,37 @@ public class BasvurularAdapter extends RecyclerView.Adapter<BasvurularAdapter.Vi
     }
 
 
+    public void basvuruOnaylaRequest(String basvuruid,int position){
+
+        Call<BasvuruOnaylaModel> request= ManagerAll.getInstance().basvuruOnayla(basvuruid);
+        request.enqueue(new Callback<BasvuruOnaylaModel>() {
+            @Override
+            public void onResponse(Call<BasvuruOnaylaModel> call, Response<BasvuruOnaylaModel> response) {
+                if(response.isSuccessful()){
+                    if(response.body().isTf()){
+                        Toast.makeText(context, response.body().getText().toString(), Toast.LENGTH_SHORT).show();
+                        deleteToList(position);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BasvuruOnaylaModel> call, Throwable t) {
+
+            }
+        });
+    }
+    public void basvuruRedRequest(String basvuruid,int position){
+
+        
+    }
+
+
+    // listeden basvuruyu kaldırma
+    public void deleteToList(int position){
+        list.remove(position);
+        notifyItemRemoved(position);
+        notifyDataSetChanged();
+    }
 
 }
