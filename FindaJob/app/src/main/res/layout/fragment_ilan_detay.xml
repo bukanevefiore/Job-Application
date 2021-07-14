@@ -380,7 +380,7 @@
                         android:layout_marginLeft="25dp">
                     </TextView>
                     <TextView
-                        android:text="* Mode of Operation"
+                        android:text="* Education Level"
                         android:paddingLeft="15sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -429,7 +429,7 @@
             android:background="@drawable/background_transparent"
             android:text="Apply" />
 
-
+<!--
         <Button
             android:id="@+id/ilanDetayButtonFavoriyeAl"
             android:layout_width="0dp"
@@ -441,7 +441,7 @@
             android:background="@drawable/background_transparent"
             android:text="Add to favorıtes" />
 
-
+-->
 
 
     </LinearLayout>

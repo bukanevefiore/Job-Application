@@ -69,7 +69,7 @@ public class IlanDetayFragment extends Fragment {
         userid=getSharedPref.getSession().getString("id",null);
         imageGeri=view.findViewById(R.id.imageGeri);
         ilanId=getArguments().getString("ilanid").toString();
-        ilanDetayButtonFavoriyeAl=view.findViewById(R.id.ilanDetayButtonFavoriyeAl);
+        //ilanDetayButtonFavoriyeAl=view.findViewById(R.id.ilanDetayButtonFavoriyeAl);
         ilanDetayButtonBasvur=view.findViewById(R.id.ilanDetayButtonBasvur);
         ilanDetayNitelikRecyclerView=view.findViewById(R.id.ilanDetayNitelikRecyclerView);
         RecyclerView.LayoutManager layoutManager=new GridLayoutManager(getContext(),1);

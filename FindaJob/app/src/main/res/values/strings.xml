@@ -8,8 +8,8 @@
     <string name="ilanlar">Job Postings</string>
     <string name="ilanlardetay">Posting Details</string>
     <string name="sharead">Share Ad</string>
-    <string name="myfavoriteads">My Favorite Postings</string>
-    <string name="myapplications">Job Postings > Recourse</string>
+    <string name="myfavoriteads">Sign Out</string>
+    <string name="myapplications">My Job Postings / Recourse</string>
     <string name="title_activity_ilanlarim_navigation">My Job Postings Details</string>
     <string name="title_home">Postings Update</string>
     <string name="title_notifications">Recourse</string>

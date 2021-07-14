@@ -44,7 +44,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_gravity="center"
-                        android:text="ilan detay baslik"
+                        android:hint="ilan detay baslik"
                         android:id="@+id/ilanDetayGuncelleIlanBaslik"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_gravity="center"
-                        android:text="ilan detay aciklama"
+                        android:hint="ilan detay aciklama"
                         android:id="@+id/ilanDetayGuncelleIlanAciklama"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                     </com.google.android.material.textfield.TextInputEditText>
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_gravity="center"
-                        android:text="İlan Adres"
+                        android:hint="İlan Adres"
                         android:id="@+id/ilanDetayGuncelleAdres"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

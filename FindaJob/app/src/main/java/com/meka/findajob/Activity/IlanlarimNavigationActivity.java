@@ -73,17 +73,17 @@ public class IlanlarimNavigationActivity extends AppCompatActivity {
         getSharedPref.setSession2(ilanid);
 
         imageGeriIlanlarim=findViewById(R.id.imageGeriIlanlarim);
-        /*
+
         imageGeriIlanlarim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                //ChangeFragments changeFragments=new ChangeFragments(context);
-                //changeFragments.change(new IlanlarimFragment());
+                ChangeFragments changeFragments=new ChangeFragments(context);
+                changeFragments.change(new IlanlarimFragment());
             }
         });
 
-         */
+
 
     }
 

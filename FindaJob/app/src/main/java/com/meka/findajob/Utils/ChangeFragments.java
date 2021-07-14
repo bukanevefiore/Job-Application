@@ -41,7 +41,6 @@ public class ChangeFragments {
     }
 
         public void changeWithParemeters(Fragment fragment,String ilanid,String kid){
-
             Bundle bundle=new Bundle();
             bundle.putString("ilanid",ilanid);
             bundle.putString("kid",kid);
@@ -51,7 +50,6 @@ public class ChangeFragments {
                     .replace(R.id.navHostFragment,fragment,"fragment")
                     .setTransitionStyle(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     .commit();
-
         }
 
     public void changeWith1Paremeters(Fragment fragment,String ilanid){

@@ -13,23 +13,27 @@ import androidx.navigation.ui.NavigationUI;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.meka.findajob.R;
+import com.meka.findajob.Utils.ChangeFragments;
 import com.meka.findajob.Utils.GetSharedPref;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    TextView nameSurnameNavigation,emailNavigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        sharedKontrol();
+        //sharedKontrol();
         drawerMenuKontrol();
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);  // edittexler arası klavye ile geçiş
     }
@@ -49,6 +53,11 @@ public class MainActivity extends AppCompatActivity {
         // belirlediğimiz iconların kullanılması için standartı null yapma
         navigationView.setItemIconTintList(null);
 
+        View headerNav=navigationView.getHeaderView(0);
+        emailNavigation=headerNav.findViewById(R.id.emailNavigation);
+        nameSurnameNavigation=headerNav.findViewById(R.id.nameSurnameNavigation);
+        sharedKontrol();
+
         NavController navController= Navigation.findNavController(this,R.id.navHostFragment);
         NavigationUI.setupWithNavController(navigationView,navController);
 
@@ -57,11 +66,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
                 textTitle.setText(destination.getLabel());
+
             }
         });
     }
 
+
     public void  sharedKontrol(){
+
         SharedPreferences sharedPreferences;
         GetSharedPref getSharedPref=new GetSharedPref(MainActivity.this);
         sharedPreferences=getSharedPref.getSession();
@@ -72,6 +84,15 @@ public class MainActivity extends AppCompatActivity {
             Intent intent=new Intent(MainActivity.this,SignInActivity.class);
             startActivity(intent);
             finish();
+
+        }else{
+            Log.i("kadi : ",getSharedPref.getSession().getString("kadi",null));
+
+            nameSurnameNavigation.setText(getSharedPref.getSession().getString("kadi",null));
+            emailNavigation.setText(getSharedPref.getSession().getString("mail",null));
+             
+
         }
     }
+
 }

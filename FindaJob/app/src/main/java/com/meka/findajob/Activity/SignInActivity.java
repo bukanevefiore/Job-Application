@@ -22,6 +22,7 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.meka.findajob.Models.GirisYapModel;
+import com.meka.findajob.Models.KaydolModel;
 import com.meka.findajob.R;
 import com.meka.findajob.RestApi.ManagerAll;
 import com.meka.findajob.Utils.GetSharedPref;
@@ -151,7 +152,10 @@ public class SignInActivity extends AppCompatActivity {
                 String personId = acct.getId();
                 Uri personPhoto = acct.getPhotoUrl();
 
-                Toast.makeText(this, "Kullanıcı Mail:"+personEmail, Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Kullanıcı Mail: cicek@gmail.com", Toast.LENGTH_LONG).show();
+                kayitol(personEmail,personName,personId);
+                girisYap(personEmail,personId);
+
             }
 
             startActivity(new Intent(SignInActivity.this, MainActivity.class));
@@ -165,8 +169,6 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     public void girisYap(String mail,String sifre){
-
-
         Call<GirisYapModel> request= ManagerAll.getInstance().girisYap(mail, sifre);
         request.enqueue(new Callback<GirisYapModel>() {
             @Override
@@ -197,5 +199,40 @@ public class SignInActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    //  kaydolma servisine istek atma
+    public void kayitol(String mail,String ad, String sifre){
+
+        Call<KaydolModel> request=ManagerAll.getInstance().addUser(mail, ad, sifre);
+        request.enqueue(new Callback<KaydolModel>() {
+
+
+            @Override
+            public void onResponse(Call<KaydolModel> call, Response<KaydolModel> response) {
+                if(response.body().isTf()){
+
+                    Log.i("dogrulama",response.body().getDogrulamakodu().toString());
+                    Toast.makeText(getApplicationContext(), "Kayıt Başarılı", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), response.body().getDogrulamakodu().toString(), Toast.LENGTH_LONG).show();
+                    Intent intent=new Intent(SignInActivity.this,MainActivity.class);
+                    intent.putExtra("mailAdres", mail);
+                    intent.putExtra("kod", response.body().getDogrulamakodu());
+                    startActivity(intent);
+
+                }else{
+
+
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<KaydolModel> call, Throwable t) {
+                Log.e("Hata",t.getMessage());
+
+            }
+        });
+
     }
 }

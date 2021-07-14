@@ -1,8 +1,10 @@
 package com.meka.findajob.Fragments;
 
+import android.app.Fragment;
+import android.os.Build;
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -45,6 +47,7 @@ public class IlanlarimFragment extends Fragment {
         return view;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     public void tanimlamalar(){
         GetSharedPref getSharedPref=new GetSharedPref(getActivity());
         kulid=getSharedPref.getSession().getString("id",null);
@@ -58,6 +61,7 @@ public class IlanlarimFragment extends Fragment {
 
         Call<List<IlanModel>> request= ManagerAll.getInstance().ilanlarimListele(kulid);
         request.enqueue(new Callback<List<IlanModel>>() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onResponse(Call<List<IlanModel>> call, Response<List<IlanModel>> response) {
                 if(response.isSuccessful()){

@@ -7,7 +7,7 @@
         android:title="@string/profile"></item>
     <item
         android:id="@+id/menuIlanlar"
-        android:icon="@drawable/ic_baseline_account_circle_24"
+        android:icon="@drawable/ic_baseline_home_24"
         android:title="@string/ilanlar"></item>
 
     <item
@@ -18,19 +18,17 @@
         android:id="@+id/menuilanPaylas"
         android:icon="@drawable/ic_baseline_share_24"
         android:title="@string/sharead"></item>
-    <item
-        android:id="@+id/menuMyFavoriteAds"
-        android:icon="@drawable/ic_baseline_favorite_24"
-        android:title="@string/myfavoriteads"></item>
+
 
     <item
         android:id="@+id/menuBasvurdugumIlanlar"
-        android:icon="@drawable/aboutus"
+        android:icon="@drawable/ic_baseline_favorite_24"
         android:title="@string/basvurdugumilanlar"></item>
+
     <item
-        android:id="@+id/menuSettings"
-        android:icon="@drawable/ic_baseline_settings_24"
-        android:title="@string/settings"></item>
+        android:id="@+id/menucikis"
+        android:icon="@drawable/ic_baseline_power_settings_new_24"
+        android:title="@string/myfavoriteads"></item>
 
 
 </menu>

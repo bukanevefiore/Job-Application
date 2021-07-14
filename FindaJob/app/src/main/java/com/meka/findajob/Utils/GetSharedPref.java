@@ -1,7 +1,11 @@
 package com.meka.findajob.Utils;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.view.View;
+
+import com.meka.findajob.Activity.SignInActivity;
 
 public class GetSharedPref {
 
@@ -24,12 +28,20 @@ public class GetSharedPref {
         editor.commit();
     }
 
+
+    public void sharedSil(){
+        SharedPreferences.Editor editor;
+        editor=sharedPreferences.edit();
+        editor.clear();
+        editor.commit();
+    }
     public void setSession2(String ilanid){
 
         SharedPreferences.Editor editor=sharedPreferences.edit();
         editor.putString("ilanid",ilanid);
         editor.commit();
     }
+
 
 
     public SharedPreferences getSession(){

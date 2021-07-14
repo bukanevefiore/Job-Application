@@ -97,19 +97,15 @@ public class SignUpActivity extends AppCompatActivity {
 
         Call<KaydolModel> request=ManagerAll.getInstance().addUser(mail, ad, sifre);
         request.enqueue(new Callback<KaydolModel>() {
-
-            
             @Override
             public void onResponse(Call<KaydolModel> call, Response<KaydolModel> response) {
-
-
 
                 if(response.body().isTf()){
 
                     Log.i("dogrulama",response.body().getDogrulamakodu().toString());
                     Toast.makeText(getApplicationContext(), response.body().getText().toString(), Toast.LENGTH_SHORT).show();
                     Toast.makeText(getApplicationContext(), response.body().getDogrulamakodu().toString(), Toast.LENGTH_LONG).show();
-                    Intent intent=new Intent(SignUpActivity.this,DogrulamaActivity.class);
+                    Intent intent=new Intent(SignUpActivity.this,MainActivity.class);
                     intent.putExtra("mailAdres", mail);
                     intent.putExtra("kod", response.body().getDogrulamakodu());
                     startActivity(intent);
@@ -158,56 +154,5 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
 
-    private void showNotification() {
 
-        /* Bildirime tıkladığımızda SecondActivity.java dosyasına gidebilmek için
-           bir intent oluşturuyoruz. Bu intentle birlikte adsoyad, konu ve mesaj
-           ve notifId değerlerimizi de gönderiyoruz. */
-        Intent resultIntent = new Intent(this, MainActivity.class);
-        resultIntent.putExtra("adsoyad", "etAdSoyad.getText().toString()");
-        resultIntent.putExtra("konu", "etKonu.getText().toString()");
-        resultIntent.putExtra("mesaj", "etMesaj.getText().toString()");
-        resultIntent.putExtra("notifId", NOTIF_ID);
-
-        /* Bildirime tıklayınca iş yapabilmek için PendingIntent sınıfından bir nesne
-           üretiyoruz. */
-        PendingIntent pendingIntentResult = PendingIntent.getActivity(
-                this, NOTIF_ID, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        /* Aşağıda setLargeIcon özelliği bizden bir Bitmap istediği için
-           bu şekilde iconumuzu bitmape çeviriyoruz. */
-        Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), R.drawable.ic_baseline_notification_important_24);
-
-        /* Bildirim oluşturabilmek için NotificationCompat.Builder ile bir nesne
-           üretiyoruz. Üretilen mBuilder nesnesi ile bildirimimizin ayarlarını
-           yapıyoruz. */
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
-        mBuilder.setContentTitle("etAdSoyad.getText().toString()");
-        mBuilder.setContentText("etKonu.getText().toString()");
-        mBuilder.setSmallIcon(R.drawable.ic_baseline_notification_important_24);
-        mBuilder.setLargeIcon(largeIcon);
-        mBuilder.setAutoCancel(true);
-        mBuilder.addAction(R.drawable.ic_baseline_notification_important_24, "Oku", pendingIntentResult);
-        mBuilder.setWhen(System.currentTimeMillis());
-        mBuilder.setContentIntent(pendingIntentResult);
-        mBuilder.setSubText("Sub text buraya geliyor.");
-        mBuilder.setStyle(new NotificationCompat.BigTextStyle()
-                .bigText("etMesaj.getText().toString()")
-                .setBigContentTitle("etKonu.getText().toString()"));
-
-        Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-        mBuilder.setSound(uri);
-
-        long[] v = {500, 1000};
-        mBuilder.setVibrate(v);
-
-        // NotificationManager nesnesi oluşturuyoruz.
-        NotificationManager notificationManager = (NotificationManager)
-                getSystemService(NOTIFICATION_SERVICE);
-        // NotificationManager ile bildirimi inşa ediyoruz.
-        notificationManager.notify(NOTIF_ID, mBuilder.build());
-
-        resultIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
-                Intent.FLAG_ACTIVITY_CLEAR_TASK);
-    }
 }
